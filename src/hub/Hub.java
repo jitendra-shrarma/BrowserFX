@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /** @author God-Hand */
-public class Hub extends Application{
+public class Hub{
 
     private Stage stage;
     public void setStage(Stage stage) {
@@ -20,21 +20,17 @@ public class Hub extends Application{
         stage.show();
     }
 
-    @Override
-    public void start(Stage primaryStage){
+    public Hub(){
         try {
+            stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/Hub.fxml"));
             Scene scene = new Scene(root,1000,600);
-            primaryStage.setResizable(false);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Hub");
-            setStage(primaryStage);
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.setTitle("Hub");
+            setStage(stage);
         }catch (Exception e){
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

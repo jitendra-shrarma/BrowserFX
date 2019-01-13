@@ -63,10 +63,6 @@ public class TabController implements Initializable{
     private PopOver popOver = new PopOver(new JFXButton("Yes"));
     private static Hub hub = new Hub();
 
-    static {
-        hub.start(new Stage());
-    }
-
     public TabController(){
         // TODO Auto-generated constructor stub
     }
@@ -212,7 +208,12 @@ public class TabController implements Initializable{
     }
 
     public void pageRender(String url) {
-        webEngine.load(searchEngine + url);
+    	try { 
+            new URL(url).toURI(); 
+            webEngine.load(url);
+        } catch (Exception e){
+        	webEngine.load(searchEngine + url);	
+        }
     }
 
     private void webViewBehaviour(){

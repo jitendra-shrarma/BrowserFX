@@ -85,6 +85,17 @@
   <property name="project.jdk.home" value="${jdk.home.1.8}"/>
   <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
   <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Global Libraries -->
+  
+  <path id="library.controlsfx-8.40.14.classpath">
+    <pathelement location="C:/Users/GOD_HAND/Documents/GitHub/BrowserFX/jar/StageFX.jar"/>
+    <pathelement location="C:/Users/GOD_HAND/Documents/GitHub/BrowserFX/jar/TabPaneFX.jar"/>
+    <pathelement location="C:/Users/GOD_HAND/Documents/GitHub/BrowserFX/jar/controlsfx-8.40.14.jar"/>
+    <pathelement location="C:/Users/GOD_HAND/Documents/GitHub/BrowserFX/jar/jfoenix-8.0.1.jar"/>
+    <pathelement location="C:/Users/GOD_HAND/Documents/GitHub/BrowserFX/jar/sqlite-jdbc-3.20.1.jar"/>
+  </path>
   <!-- Register Custom Compiler Taskdefs -->
   <property name="javac2.home" value="${idea.home}/lib"/>
   <path id="javac2.classpath">
@@ -122,11 +133,12 @@
     <mkdir dir="${artifact.temp.output.browserfx:jar}"/>
     <jar destfile="${temp.jar.path.BrowserFX.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
       <zipfileset dir="${browserfx.output.dir}"/>
-      <zipfileset src="${basedir}/jar/controlsfx-8.40.14.jar"/>
-      <zipfileset src="${basedir}/jar/sqlite-jdbc-3.20.1.jar"/>
-      <zipfileset src="${basedir}/jar/jfoenix-8.0.1.jar"/>
       <zipfileset src="${basedir}/jar/StageFX.jar"/>
+      <zipfileset src="${basedir}/jar/jfoenix-8.0.1.jar"/>
+      <zipfileset src="${basedir}/jar/controlsfx-8.40.14.jar"/>
       <zipfileset src="${basedir}/jar/TabPaneFX.jar"/>
+      <zipfileset src="${basedir}/jar/sqlite-jdbc-3.20.1.jar"/>
+      <zipfileset dir="${basedir}/src/hub"/>
     </jar>
     <copy file="${temp.jar.path.BrowserFX.jar}" tofile="${artifact.temp.output.browserfx:jar}/BrowserFX.jar"/>
   </target>
