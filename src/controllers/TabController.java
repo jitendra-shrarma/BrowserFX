@@ -223,6 +223,7 @@ public class TabController implements Initializable{
     }
 
     private void engineBehaviour(){
+        webEngine.setJavaScriptEnabled(true);
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
             @Override
             public void changed(ObservableValue observableValue, Worker.State oldState, Worker.State newState) {
