@@ -31,7 +31,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import org.controlsfx.control.PopOver;
-import resources.Resources;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -73,14 +72,10 @@ public class TabController implements Initializable{
     }
 
     @FXML void goBack(MouseEvent event) {
-        System.out.println("Max size :" + webHistory.getEntries().size());
-        System.out.println("Current index backword: " + webHistory.getCurrentIndex());
         webHistory.go(-1);
     }
 
     @FXML void goNext(MouseEvent event) {
-        System.out.println("Max size :" + webHistory.getEntries().size());
-        System.out.println("Current index forward: " + webHistory.getCurrentIndex());
         webHistory.go(1);
     }
 
@@ -101,7 +96,7 @@ public class TabController implements Initializable{
     }
 
     @FXML void goBackHome(MouseEvent event) {
-        pageRender("");
+        webEngine.load(searchEngine);
     }
 
     @FXML void search(KeyEvent event) {
@@ -256,7 +251,7 @@ public class TabController implements Initializable{
                     refreshOrCancel(false);
                     title = "You're Not Connected";
                     tab.setText(title);
-                    tab.setGraphic(new ImageView(new Image(getClass().getResourceAsStream(Resources.IMAGES + "unable.png"))));
+                    tab.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("../resources/images/unable.png"))));
                 }
             }
         });
@@ -288,7 +283,7 @@ public class TabController implements Initializable{
             pageRender("");
             webViewBehaviour();
         }catch (Exception e){
-            e.printStackTrace();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 

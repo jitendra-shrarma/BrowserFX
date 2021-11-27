@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import resources.Resources;
-import java.io.IOException;
 
 /** @author God-Hand */
 public class Hub extends Application{
@@ -20,20 +18,19 @@ public class Hub extends Application{
             stage.setIconified(false);
         }
         stage.show();
-
     }
 
     @Override
     public void start(Stage primaryStage){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(Resources.FXML + "Hub.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/Hub.fxml"));
             Scene scene = new Scene(root,1000,600);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Hub");
             setStage(primaryStage);
-        }catch (IOException e){
-            System.out.println("Hub error");
+        }catch (Exception e){
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 

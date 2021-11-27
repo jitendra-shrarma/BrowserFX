@@ -1,9 +1,33 @@
+/*
+* MIT License
+*
+* Copyright (c) 2018 majestic_gohan
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
 package browser;
 
 import BrowserStage.Stage.SceneFX;
 import database.BookmarksManagement;
 import database.HistoryManagement;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,10 +37,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import resources.Resources;
 import tabpanefx.TabPaneFX;
-
-import java.io.IOException;
 
 /** @author God-Hand */
 public class Browser extends Application {
@@ -35,8 +56,11 @@ public class Browser extends Application {
         tab.setClosable(true);
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
-        try { tab.setContent(FXMLLoader.load(getClass().getResource(Resources.FXML+"Tab.fxml")));
-        } catch (IOException e) { e.printStackTrace(); }
+        try {
+            tab.setContent(FXMLLoader.load(getClass().getResource("/resources/fxml/Tab.fxml")));
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
     }
 
     /** add behavior for add button and root size*/
@@ -54,6 +78,9 @@ public class Browser extends Application {
         //resize control pane on removal of a tab
         tabPane.getTabs().addListener((ListChangeListener<Tab>) change->{
             if(change.next() && change.wasRemoved()){
+                if (tabPane.getTabs().size() == 0) {
+                    Platform.exit();
+                }
                 Spacer-=196;
                 controlPane.setPrefWidth(root.getWidth()-Spacer);
             }
@@ -103,5 +130,6 @@ public class Browser extends Application {
         HistoryManagement.create();
         BookmarksManagement.create();
         launch(args);
+        System.exit(0);
     }
 }
