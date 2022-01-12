@@ -150,7 +150,7 @@ public class TabController implements Initializable{
         HBox hbox = new HBox();
         hbox.setSpacing(5);
         hbox.getChildren().addAll(cancelPopup, newFolderMarkFolder, saveMark);
-        // markFolderList.setVisibleRowCount(0);
+        markFolderList.setVisibleRowCount(5);
 
 
         VBox.setMargin(nameLabel, new Insets(5, 5, 5, 5));
@@ -163,7 +163,6 @@ public class TabController implements Initializable{
         popOver.setCornerRadius(4);
         popOver.setContentNode(popUpContent);
         popOver.setDetachable(false);
-        // popOver.setMinSize(400, 400);
         popOver.setArrowLocation(PopOver.ArrowLocation.TOP_RIGHT);
         popOver.show(bookmark);
 
@@ -183,6 +182,7 @@ public class TabController implements Initializable{
             isBookmark();
             popOver.hide();
         });
+
         newFolderMarkFolder.addEventHandler(MouseEvent.MOUSE_CLICKED, event2 -> {
             TextInputDialog dialog = new TextInputDialog("All Bookmarks");
             dialog.setTitle("Create New Folder");
@@ -199,6 +199,7 @@ public class TabController implements Initializable{
                     folder = name;
                     options.add(folder);
                     BookmarksManagement.insert(searchField.getText(), folder,title);
+                    isBookmark();
                 }else{
                     Notifications notify = Notifications.create().title("BookMark Folder")
                             .text("No Folder specified.")

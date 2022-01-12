@@ -69,7 +69,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HistoryController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HistoryController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/HistoryController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="29">
@@ -83,24 +83,6 @@
                 <element signature="method#initialize#0;class#HistoryController#0" expanded="false" />
                 <element signature="e#5271#6470#0" expanded="false" />
                 <element signature="class#HistoryStoreView#0;class#HistoryController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookmarkController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="29" column="122" lean-forward="false" selection-start-line="29" selection-start-column="122" selection-end-line="29" selection-end-column="122" />
-              <folding>
-                <element signature="method#BookmarkController#0;class#BookmarkController#0" expanded="false" />
-                <element signature="method#clearSpecificFolder#0;class#BookmarkController#0" expanded="false" />
-                <element signature="method#deleteSelectedRow#0;class#BookmarkController#0" expanded="false" />
-                <element signature="method#addListInTable#0;class#BookmarkController#0" expanded="false" />
-                <element signature="method#addFolders#0;class#BookmarkController#0" expanded="false" />
-                <element signature="method#initialize#0;class#BookmarkController#0" expanded="false" />
-                <element signature="class#BookmarkStoreView#0;class#BookmarkController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -161,12 +143,12 @@
         <option value="$PROJECT_DIR$/src/resources/Resources.java" />
         <option value="$PROJECT_DIR$/src/resources/css/Tab.css" />
         <option value="$PROJECT_DIR$/src/resources/css/Hub.css" />
-        <option value="$PROJECT_DIR$/src/controllers/TabController.java" />
         <option value="$PROJECT_DIR$/src/database/HistoryManagement.java" />
         <option value="$PROJECT_DIR$/src/database/BookmarksManagement.java" />
         <option value="$PROJECT_DIR$/DataBase.db" />
         <option value="$PROJECT_DIR$/src/controllers/HistoryController.java" />
         <option value="$PROJECT_DIR$/src/controllers/BookmarkController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/TabController.java" />
       </list>
     </option>
   </component>
@@ -703,28 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/TabController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="33" column="27" lean-forward="false" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="initializer##0;class#TabController#0" expanded="false" />
-            <element signature="method#TabController#0;class#TabController#0" expanded="false" />
-            <element signature="method#goBack#0;class#TabController#0" expanded="false" />
-            <element signature="method#goNext#0;class#TabController#0" expanded="false" />
-            <element signature="method#refreshPage#0;class#TabController#0" expanded="false" />
-            <element signature="method#refreshOrCancel#0;class#TabController#0" expanded="false" />
-            <element signature="method#search#0;class#TabController#0" expanded="false" />
-            <element signature="method#isBookmark#0;class#TabController#0" expanded="false" />
-            <element signature="method#addBookmark#0;class#TabController#0" expanded="false" />
-            <element signature="method#webViewBehaviour#0;class#TabController#0" expanded="false" />
-            <element signature="method#engineBehaviour#0;class#TabController#0" expanded="false" />
-            <element signature="method#initialize#0;class#TabController#0" expanded="false" />
-            <element signature="method#getWebIcon#0;class#TabController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/Resources.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -823,19 +783,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/HistoryController.java">
+    <entry file="file://$PROJECT_DIR$/src/controllers/TabController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="29" column="120" lean-forward="false" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+        <state relative-caret-position="216">
+          <caret line="121" column="45" lean-forward="false" selection-start-line="121" selection-start-column="45" selection-end-line="121" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#HistoryController#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#deleteSelectedRow#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#clearSpecificHistory#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#addListInTable#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#initialize#0;class#HistoryController#0" expanded="false" />
-            <element signature="e#5271#6470#0" expanded="false" />
-            <element signature="class#HistoryStoreView#0;class#HistoryController#0" expanded="false" />
+            <element signature="initializer##0;class#TabController#0" expanded="false" />
+            <element signature="method#TabController#0;class#TabController#0" expanded="false" />
+            <element signature="method#goBack#0;class#TabController#0" expanded="false" />
+            <element signature="method#goNext#0;class#TabController#0" expanded="false" />
+            <element signature="method#refreshPage#0;class#TabController#0" expanded="false" />
+            <element signature="method#refreshOrCancel#0;class#TabController#0" expanded="false" />
+            <element signature="method#search#0;class#TabController#0" expanded="false" />
+            <element signature="method#isBookmark#0;class#TabController#0" expanded="false" />
+            <element signature="method#addBookmark#0;class#TabController#0" expanded="false" />
+            <element signature="e#5548#5603#0" expanded="false" />
+            <element signature="e#5666#6051#0" expanded="false" />
+            <element signature="e#6125#7297#0" expanded="false" />
+            <element signature="e#6471#7285#0" expanded="false" />
+            <element signature="method#webViewBehaviour#0;class#TabController#0" expanded="false" />
+            <element signature="method#engineBehaviour#0;class#TabController#0" expanded="false" />
+            <element signature="method#initialize#0;class#TabController#0" expanded="false" />
+            <element signature="method#getWebIcon#0;class#TabController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -852,6 +822,23 @@
             <element signature="method#addFolders#0;class#BookmarkController#0" expanded="false" />
             <element signature="method#initialize#0;class#BookmarkController#0" expanded="false" />
             <element signature="class#BookmarkStoreView#0;class#BookmarkController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/HistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="29" column="120" lean-forward="false" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#HistoryController#0;class#HistoryController#0" expanded="false" />
+            <element signature="method#deleteSelectedRow#0;class#HistoryController#0" expanded="false" />
+            <element signature="method#clearSpecificHistory#0;class#HistoryController#0" expanded="false" />
+            <element signature="method#addListInTable#0;class#HistoryController#0" expanded="false" />
+            <element signature="method#initialize#0;class#HistoryController#0" expanded="false" />
+            <element signature="e#5271#6470#0" expanded="false" />
+            <element signature="class#HistoryStoreView#0;class#HistoryController#0" expanded="false" />
           </folding>
         </state>
       </provider>
