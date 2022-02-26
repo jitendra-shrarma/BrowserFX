@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -39,19 +38,13 @@
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <JFXTextField fx:id="search" focusColor="WHITE" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Search URL" unFocusColor="#404040" GridPane.columnIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font></JFXTextField>
-            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" text="Search" textFill="WHITE">
+            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteSelectedRow" prefHeight="40.0" prefWidth="130.0" styleClass="lebel" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
-            </Label>
-            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteSelectedRow" prefHeight="40.0" prefWidth="140.0" styleClass="lebel" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
             </Label>
             <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clearSpecificHistory" prefHeight="40.0" prefWidth="160.0" styleClass="lebel" text="Clear History" textFill="WHITE" GridPane.columnIndex="3">
                <font>

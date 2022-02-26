@@ -59,8 +59,7 @@
 /* The main scrollbar CSS class of ListView */
 .listView .scroll-bar:horizontal ,
 .listView .scroll-bar:vertical{
-    -fx-background-color:transparent;
-
+    -fx-background-color:#FFF;
 }
 
 /* The increment and decrement button CSS class of scrollbar */
@@ -83,20 +82,16 @@
     -fx-background-color:derive(black,90%);
 	-fx-background-insets: 0, 0, 0;
 	-fx-background-radius: 0em;
-
 }
 
 /* The main scrollbar **track** CSS class on event of "hover" and "pressed" */
-
 .listView .scroll-bar:horizontal:hover .track ,
 .listView .scroll-bar:horizontal:pressed .track ,
 .listView .scroll-bar:vertical:hover .track,
 .listView .scroll-bar:vertical:pressed .track{
      -fx-background-color: derive(#434343,20%);
-
 	 -fx-opacity: 0.2;
 	 -fx-background-radius: 0em;
-
 }
 
 /* The main scrollbar **thumb** CSS class on event of "hover" and "pressed" */

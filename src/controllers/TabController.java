@@ -32,7 +32,6 @@ import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import org.controlsfx.control.PopOver;
 import resources.Resources;
-import settings.SearchEngine;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -55,7 +54,7 @@ public class TabController implements Initializable{
     private WebEngine webEngine = webView.getEngine();
     private WebHistory webHistory = webEngine.getHistory();
     private Worker<Void> worker = webEngine.getLoadWorker();
-    public static String searchEngine = SearchEngine.BING_ENGINE;
+    public static String searchEngine = "https://www.bing.com/search?q=";
 
     private ObservableList<String> options = null;
     private String folder;

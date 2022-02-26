@@ -15,7 +15,7 @@ public class BookmarksManagement {
 	private static Connection connection = SqliteConnection.databaseConnection;
 	private static PreparedStatement preparedStatement = null;
 	private static Date dateTime;
-	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm, E");
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
 
 	/** create BookmarkDatabase bookmark(url ,folderName ,title ,time ,date , Primary key(url)) */

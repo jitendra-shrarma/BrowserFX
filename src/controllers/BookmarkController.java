@@ -1,6 +1,5 @@
 package controllers;
 
-import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
@@ -25,11 +24,10 @@ import java.util.ResourceBundle;
 public class BookmarkController implements Initializable{
 
     @FXML private TreeView<?> treeView;
-    @FXML private JFXTextField search;
     @FXML private JFXTreeTableView<BookmarkStoreView> table;
 
     private JFXTreeTableColumn<BookmarkStoreView, String> nameCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Name");
-    private JFXTreeTableColumn<BookmarkStoreView, String> linkCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Link");
+    private JFXTreeTableColumn<BookmarkStoreView, String> linkCol = new JFXTreeTableColumn<BookmarkStoreView, String>("URL");
     private JFXTreeTableColumn<BookmarkStoreView, String> timeCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Time");
     private JFXTreeTableColumn<BookmarkStoreView, String> dateCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Date");
 

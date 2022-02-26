@@ -13,7 +13,7 @@ public class HistoryManagement {
     private static Connection connection = SqliteConnection.databaseConnection;
     private static PreparedStatement preparedStatement = null;
     private static Date dateTime;
-    private static SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a , E");
+    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm, E");
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     /** create table if not exist (tableName = history(url,title,time,date) primary key(url,domain)) */
