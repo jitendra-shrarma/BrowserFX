@@ -11,26 +11,18 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.TreeTableColumn.CellDataFeatures;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.net.URL;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/** @author God-Hand */
 public class HistoryController implements Initializable{
 
     @FXML private TreeView<?> treeView;
@@ -85,7 +77,7 @@ public class HistoryController implements Initializable{
                         return param.getValue().getValue().title;
                     }
                 });
-        linkCol.setPrefWidth(350);
+        linkCol.setPrefWidth(335);
         linkCol.setCellValueFactory(
                 new Callback<CellDataFeatures<HistoryStoreView, String>, ObservableValue<String>>() {
                     @Override
@@ -153,18 +145,18 @@ public class HistoryController implements Initializable{
         });
         treeView.getSelectionModel().select(0);
     }
-}
 
-class HistoryStoreView extends RecursiveTreeObject<HistoryStoreView> {
-    StringProperty link;
-    StringProperty title;
-    StringProperty time;
-    StringProperty date;
+    class HistoryStoreView extends RecursiveTreeObject<HistoryStoreView> {
+        StringProperty link;
+        StringProperty title;
+        StringProperty time;
+        StringProperty date;
 
-    public HistoryStoreView( String link ,String title ,String time ,String date) {
-        this.link = new SimpleStringProperty(link);
-        this.title = new SimpleStringProperty(title);
-        this.time = new SimpleStringProperty(time);
-        this.date = new SimpleStringProperty(date);
+        public HistoryStoreView( String link ,String title ,String time ,String date) {
+            this.link = new SimpleStringProperty(link);
+            this.title = new SimpleStringProperty(title);
+            this.time = new SimpleStringProperty(time);
+            this.date = new SimpleStringProperty(date);
+        }
     }
 }

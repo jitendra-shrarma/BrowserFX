@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/** @author God-Hand */
 public class HubController implements Initializable {
 
     @FXML private Tab history;

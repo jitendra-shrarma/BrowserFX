@@ -65,6 +65,6 @@
       </GridPane>
    </top>
    <center>
-      <JFXTreeTableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <JFXTreeTableView fx:id="table" prefHeight="200.0" prefWidth="200.0" styleClass="listView" stylesheets="@../css/Hub.css" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

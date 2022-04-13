@@ -21,6 +21,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+/** @author God-Hand */
 public class BookmarkController implements Initializable{
 
     @FXML private TreeView<?> treeView;
@@ -68,7 +69,7 @@ public class BookmarkController implements Initializable{
                         return param.getValue().getValue().name;
                     }
                 });
-        linkCol.setPrefWidth(350);
+        linkCol.setPrefWidth(335);
         linkCol.setCellValueFactory(
                 new Callback<TreeTableColumn.CellDataFeatures<BookmarkStoreView, String>, ObservableValue<String>>() {
                     @Override
@@ -130,17 +131,17 @@ public class BookmarkController implements Initializable{
         });
         treeView.getSelectionModel().select(0);
     }
-}
 
-class BookmarkStoreView extends RecursiveTreeObject<BookmarkStoreView> {
-    StringProperty name;
-    StringProperty link;
-    StringProperty time;
-    StringProperty date;
-    public BookmarkStoreView( String link ,String name ,String time ,String date) {
-        this.name = new SimpleStringProperty(name);
-        this.link = new SimpleStringProperty(link);
-        this.time = new SimpleStringProperty(time);
-        this.date = new SimpleStringProperty(date);
+    class BookmarkStoreView extends RecursiveTreeObject<BookmarkStoreView> {
+        StringProperty name;
+        StringProperty link;
+        StringProperty time;
+        StringProperty date;
+        public BookmarkStoreView( String link ,String name ,String time ,String date) {
+            this.name = new SimpleStringProperty(name);
+            this.link = new SimpleStringProperty(link);
+            this.time = new SimpleStringProperty(time);
+            this.date = new SimpleStringProperty(date);
+        }
     }
 }

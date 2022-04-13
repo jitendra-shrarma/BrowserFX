@@ -7,10 +7,10 @@ import java.sql.SQLException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/** @author God-Hand */
 public class BookmarksManagement {
 	private static Connection connection = SqliteConnection.databaseConnection;
 	private static PreparedStatement preparedStatement = null;
@@ -18,7 +18,7 @@ public class BookmarksManagement {
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
 
-	/**create BookmarkDatabase bookmark(url ,folderName ,title ,time ,date , Primary key(url))*/
+	/** create BookmarkDatabase bookmark(url ,folderName ,title ,time ,date , Primary key(url)) */
 	public static void create() {
 		try {
 			preparedStatement = connection.prepareStatement("create table if not exists bookmark(url text ,folderName varchar(30),"
@@ -29,7 +29,7 @@ public class BookmarksManagement {
 		}
 	}
 
-	/**insert Bookmark in database*/
+	/** insert Bookmark in database */
 	public static void insert(String url, String folder, String title) {
 		try {
 			dateTime= new Date();
@@ -50,7 +50,7 @@ public class BookmarksManagement {
 		}
 	}
 
-	/**delete Bookmark*/
+	/** delete Bookmark */
 	public static void delete(String url){
 		try {
 			String insert = "delete from bookmark where url = ? ";
@@ -62,7 +62,7 @@ public class BookmarksManagement {
 		}
 	}
 
-	/**delete specific folder*/
+	/** delete specific folder */
 	public static void deleteFolder(String folder) {
 		try {
 			String query = null;
@@ -80,16 +80,16 @@ public class BookmarksManagement {
 		}
 	}
 
-	/**return bookmarks for specific folder*/
+	/** return bookmarks for specific folder */
 	public static ResultSet showBookmarks(String folder) {
 		ResultSet rs = null;
 		try {
 			String query = null;
 			if(folder == "All Bookmarks") {
-				query = "select url, title, time , date from bookmark;";
+				query = "select url, title, time , date from bookmark Order by date,time DESC;";
 				preparedStatement = connection.prepareStatement(query);
 			}else {
-				query = "select url, title, time , date from bookmark where url in (select url from bookmark where folderName = ?);";
+				query = "select url, title, time , date from bookmark where folderName = ? Order by date,time DESC;";
 				preparedStatement = connection.prepareStatement(query);
 				preparedStatement.setString(1, folder);
 			}
@@ -100,7 +100,7 @@ public class BookmarksManagement {
 		return rs;
 	}
 
-	/**return all distinct folders*/
+	/** return all distinct folders */
 	public static ObservableList<String> folders() {
 		ResultSet rs;
 		String query = "select distinct folderName from bookmark order by folderName;";
@@ -120,7 +120,7 @@ public class BookmarksManagement {
 		return list;
 	}
 
-	/**search database weather the url is bookmarked*/
+	/** search database weather the url is bookmarked  */
 	public static boolean isBookmarked(String url, String title, String folder){
 		try{
 			String query = "select title,folderName from bookmark where url = ? ;";

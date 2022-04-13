@@ -18,9 +18,7 @@ import tabpanefx.TabPaneFX;
 
 import java.io.IOException;
 
-/**
- * @author God-Hand
- */
+/** @author God-Hand */
 public class Browser extends Application {
 
     private int Spacer = 196;
@@ -30,10 +28,8 @@ public class Browser extends Application {
     public static Button addTab;
     private AnchorPane controlPane;
 
-    /**
-     * create new Tab and add the content in it.
-     * it change tab selection
-     */
+    /** create new Tab and add the content in it.
+     * it change tab selection*/
     public void createNewTab(){
         Tab tab = new Tab("NEW TAB");
         tab.setClosable(true);
@@ -43,9 +39,7 @@ public class Browser extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    /**
-     * add behavior for add button and root size
-     */
+    /** add behavior for add button and root size*/
     private void addBehavior(){
         addTab = sceneFX.getStageFX().addButton;
         controlPane = sceneFX.getStageFX().controlPane;
@@ -71,6 +65,7 @@ public class Browser extends Application {
         });
     }
 
+    /** initialize tabPane size and add tabPane in root*/
     public void createBrowserStage(){
         tabPane.setTabMinWidth(180);
         tabPane.setTabMaxWidth(180);
@@ -103,6 +98,7 @@ public class Browser extends Application {
         primaryStage.show();
     }
 
+    /**launch application and create database*/
     public static void main(String[] args) {
         HistoryManagement.create();
         BookmarksManagement.create();

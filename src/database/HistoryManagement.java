@@ -7,9 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import controllers.HistoryController;
-import javafx.collections.ObservableList;
-
+/** @author God-Hand */
 public class HistoryManagement {
 
     private static Connection connection = SqliteConnection.databaseConnection;
@@ -18,7 +16,7 @@ public class HistoryManagement {
     private static SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a , E");
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-    /**create table if not exist (tableName = history(url,title,time,date) primary key(url,domain))*/
+    /** create table if not exist (tableName = history(url,title,time,date) primary key(url,domain)) */
     public static void create() {
         try {
             String createQuery = "create table if not exists history(url text ,title varchar(40) ,time varchar(20) ,date varchar(20), primary key (url,date));";
@@ -30,7 +28,7 @@ public class HistoryManagement {
         }
     }
 
-    /**insert data in history table*/
+    /** insert data in history table */
     public static void insert(String url, String title) {
         try {
             dateTime = new Date();
@@ -47,7 +45,7 @@ public class HistoryManagement {
         }
     }
 
-    /**delete particular History*/
+    /** delete particular History */
     public static void delete(String url, String date){
         try {
             String deleteQeury = "delete from history where url = ? and date = ? ;";
@@ -61,7 +59,7 @@ public class HistoryManagement {
         }
     }
 
-    /**delete Full history*/
+    /** delete Full history */
     public static void deleteFullHistory() {
         try {
             String deleteQeury = "delete from history;";
@@ -73,7 +71,7 @@ public class HistoryManagement {
         }
     }
 
-    /**it returns ResultSet containing fullHistory*/
+    /** it returns ResultSet containing fullHistory */
     public static ResultSet getFullHistory() {
         try {
             String query = "select * from history order by date,time DESC";
@@ -85,7 +83,7 @@ public class HistoryManagement {
         }
     }
 
-    /**this function delete history in a specific duration*/
+    /** this function delete history in a specific duration */
     public static void deleteHistory(int dateRange) {
         final Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, dateRange);
@@ -104,7 +102,7 @@ public class HistoryManagement {
         }
     }
 
-    /**this function returns history in a specific duration*/
+    /** this function returns history in a specific duration */
     public static ResultSet getHistory(int dateRange) {
         final Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, dateRange);
@@ -114,7 +112,7 @@ public class HistoryManagement {
             if (dateRange == 0 || dateRange == -1) {
                 retrieveQuery = "select * from history where date like" + pastDate + " Order BY time DESC;";
             } else {
-                retrieveQuery = "select * from history where date>=" + pastDate + " Order BY date DESC;";
+                retrieveQuery = "select * from history where date>=" + pastDate + " Order BY date,time DESC;";
             }
             preparedStatement = connection.prepareStatement(retrieveQuery);
             return preparedStatement.executeQuery();
@@ -124,7 +122,7 @@ public class HistoryManagement {
         }
     }
 
-    /**this function delete pastHourHistory*/
+    /** this function delete pastHourHistory */
     public static void deletePastHoursHistory(int time) {
         dateTime = new Date();
         final Calendar cal = Calendar.getInstance();
@@ -142,7 +140,7 @@ public class HistoryManagement {
         }
     }
 
-    /**this function returns pastHourHistory*/
+    /** this function returns pastHourHistory */
     public static ResultSet pastHoursHistory(int time) {
         dateTime = new Date();
         final Calendar cal = Calendar.getInstance();

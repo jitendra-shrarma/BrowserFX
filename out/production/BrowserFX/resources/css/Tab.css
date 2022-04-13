@@ -108,3 +108,58 @@
     -fx-background-repeat:no-repeat;
     -fx-background-position: center;
 }
+
+
+/* The main scrollbar CSS class of ListView */
+.webView .scroll-bar:horizontal ,
+.webView .scroll-bar:vertical{
+    -fx-background-color:#FFFFFF;
+}
+
+/* The increment and decrement button CSS class of scrollbar */
+.webView .increment-button ,.webView .decrement-button {
+    -fx-background-color:transparent;
+	-fx-border-color:derive(gray,80%);
+}
+
+/* The main scrollbar **track** CSS class  */
+.webView .scroll-bar:horizontal .track ,
+.webView .scroll-bar:vertical .track{
+     -fx-background-color: transparent;
+	 -fx-border-color:derive(gray,80%);
+	 -fx-background-radius: 0em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.webView .scroll-bar:horizontal .thumb,
+.webView .scroll-bar:vertical .thumb {
+    -fx-background-color:derive(black,90%);
+	-fx-background-insets: 0, 0, 0;
+	-fx-background-radius: 0em;
+
+}
+
+/* The main scrollbar **track** CSS class on event of "hover" and "pressed" */
+
+.webView .scroll-bar:horizontal:hover .track ,
+.webView .scroll-bar:horizontal:pressed .track ,
+.webView .scroll-bar:vertical:hover .track,
+.webView .scroll-bar:vertical:pressed .track{
+     -fx-background-color: derive(#434343,20%);
+
+	 -fx-opacity: 0.2;
+	 -fx-background-radius: 0em;
+
+}
+
+/* The main scrollbar **thumb** CSS class on event of "hover" and "pressed" */
+.webView .scroll-bar .thumb:hover,
+.webView .scroll-bar .thumb:pressed{
+    -fx-background-color: derive(black,50%);
+}
+
+.webView .increment-button:hover ,.webView .decrement-button:hover {
+    -fx-background-color:derive(gray,100%);
+	-fx-border-color:derive(gray,80%);
+	-fx-padding:10px;
+}

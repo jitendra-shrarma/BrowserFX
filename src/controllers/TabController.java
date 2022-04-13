@@ -40,6 +40,7 @@ import java.net.URLEncoder;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/** @author God-Hand */
 public class TabController implements Initializable{
 
     @FXML private JFXTextField searchField;
@@ -55,7 +56,6 @@ public class TabController implements Initializable{
     private WebHistory webHistory = webEngine.getHistory();
     private Worker<Void> worker = webEngine.getLoadWorker();
     public static String searchEngine = SearchEngine.BING_ENGINE;
-    private static URL Home = null;
 
     private ObservableList<String> options = null;
     private String folder;
@@ -223,6 +223,7 @@ public class TabController implements Initializable{
     private void webViewBehaviour(){
         webView.setMinSize(600, 350);
         webView.setMaxSize(1366, 750);
+        webView.getStyleClass().add("webView");
         borderpane.setCenter(webView);
     }
 
