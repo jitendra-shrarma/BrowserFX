@@ -1,6 +1,5 @@
 package hub;
 
-import controllers.HistoryController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,10 +8,10 @@ import javafx.stage.Stage;
 import resources.Resources;
 import java.io.IOException;
 
+/** @author God-Hand */
 public class Hub extends Application{
 
     private Stage stage;
-    public HistoryController historyController = new HistoryController();
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -36,8 +35,6 @@ public class Hub extends Application{
         }catch (IOException e){
             System.out.println("Hub error");
         }
-        //remove it after completion of hub
-        //primaryStage.show();
     }
 
     public static void main(String[] args) {
