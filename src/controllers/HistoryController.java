@@ -73,7 +73,7 @@ public class HistoryController implements Initializable{
         }else if (selectedTime.equals("One Month")) {
             HistoryManagement.deleteHistory(-30);
         }
-        table.getColumns().clear();
+        table.getRoot().getChildren().clear();
     }
 
     public void addListInTable(ObservableList list) {

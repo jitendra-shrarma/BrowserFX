@@ -46,7 +46,7 @@ public class BookmarkController implements Initializable{
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        table.getColumns().clear();
+        table.getRoot().getChildren().clear();
     }
 
     @FXML void deleteSelectedRow(MouseEvent event) {

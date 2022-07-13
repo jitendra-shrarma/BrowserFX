@@ -21,6 +21,7 @@ public class Hub extends Application{
             stage.setIconified(false);
         }
         stage.show();
+
     }
 
     @Override
@@ -36,7 +37,7 @@ public class Hub extends Application{
             System.out.println("Hub error");
         }
         //remove it after completion of hub
-        primaryStage.show();
+        //primaryStage.show();
     }
 
     public static void main(String[] args) {

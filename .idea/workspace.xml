@@ -69,15 +69,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HistoryController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HistoryController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/HistoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+            <state relative-caret-position="305">
+              <caret line="75" column="46" lean-forward="false" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
               <folding>
                 <element signature="method#HistoryController#0;class#HistoryController#0" expanded="false" />
                 <element signature="method#deleteSelectedRow#0;class#HistoryController#0" expanded="false" />
-                <element signature="method#clearSpecificHistory#0;class#HistoryController#0" expanded="false" />
                 <element signature="method#addListInTable#0;class#HistoryController#0" expanded="false" />
                 <element signature="method#initialize#0;class#HistoryController#0" expanded="false" />
                 <element signature="class#HistoryStoreView#0" expanded="false" />
@@ -86,21 +85,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookmarkController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BookmarkController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="132" column="1" lean-forward="true" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
+            <state relative-caret-position="189">
+              <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#BookmarkController#0;class#BookmarkController#0" expanded="false" />
-                <element signature="method#clearSpecificFolder#0;class#BookmarkController#0" expanded="false" />
                 <element signature="method#deleteSelectedRow#0;class#BookmarkController#0" expanded="false" />
                 <element signature="method#addListInTable#0;class#BookmarkController#0" expanded="false" />
                 <element signature="method#addFolders#0;class#BookmarkController#0" expanded="false" />
                 <element signature="method#initialize#0;class#BookmarkController#0" expanded="false" />
-                <element signature="e#5190#5935#0" expanded="false" />
                 <element signature="class#BookmarkStoreView#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hub/Hub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Browser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/browser/Browser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="107" column="35" lean-forward="true" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
+              <folding>
+                <element signature="docComment;class#Browser#0" expanded="false" />
+                <element signature="docComment;method#createNewTab#0;class#Browser#0" expanded="false" />
+                <element signature="method#createNewTab#0;class#Browser#0" expanded="false" />
+                <element signature="docComment;method#addBehavior#0;class#Browser#0" expanded="false" />
+                <element signature="method#addBehavior#0;class#Browser#0" expanded="false" />
+                <element signature="e#1820#2002#0" expanded="false" />
+                <element signature="e#2099#2180#0" expanded="false" />
+                <element signature="method#createBrowserStage#0;class#Browser#0" expanded="false" />
+                <element signature="method#start#0;class#Browser#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -161,12 +188,12 @@
         <option value="$PROJECT_DIR$/src/controllers/TabController.java" />
         <option value="$PROJECT_DIR$/DataBase.db" />
         <option value="$PROJECT_DIR$/src/database/SqliteConnection.java" />
-        <option value="$PROJECT_DIR$/src/hub/Hub.java" />
         <option value="$PROJECT_DIR$/src/database/BookMarksDataBase.java" />
         <option value="$PROJECT_DIR$/src/database/HistoryManagement.java" />
         <option value="$PROJECT_DIR$/src/database/BookmarksManagement.java" />
-        <option value="$PROJECT_DIR$/src/controllers/HistoryController.java" />
+        <option value="$PROJECT_DIR$/src/hub/Hub.java" />
         <option value="$PROJECT_DIR$/src/controllers/BookmarkController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/HistoryController.java" />
       </list>
     </option>
   </component>
@@ -313,7 +340,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Hub">
+  <component name="RunManager" selected="Application.Browser">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module />
       <option name="HTML_USED" value="false" />
@@ -506,8 +533,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Hub" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Browser" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Browser" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Hub" />
         <item index="2" class="java.lang.String" itemvalue="JAR Application.unnamed.jar" />
         <item index="3" class="java.lang.String" itemvalue="JAR Application.BrowserFX.jar" />
         <item index="4" class="java.lang.String" itemvalue="Application.Exaple" />
@@ -762,32 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/browser/Browser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="107" column="35" lean-forward="true" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
-          <folding>
-            <element signature="docComment;class#Browser#0" expanded="false" />
-            <element signature="docComment;method#createNewTab#0;class#Browser#0" expanded="false" />
-            <element signature="method#createNewTab#0;class#Browser#0" expanded="false" />
-            <element signature="docComment;method#addBehavior#0;class#Browser#0" expanded="false" />
-            <element signature="method#addBehavior#0;class#Browser#0" expanded="false" />
-            <element signature="e#1820#2002#0" expanded="false" />
-            <element signature="e#2099#2180#0" expanded="false" />
-            <element signature="method#createBrowserStage#0;class#Browser#0" expanded="false" />
-            <element signature="method#start#0;class#Browser#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hub/Hub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/HistoryManagement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -822,35 +823,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/HistoryController.java">
+    <entry file="file://$PROJECT_DIR$/src/browser/Browser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+        <state relative-caret-position="459">
+          <caret line="107" column="35" lean-forward="true" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
           <folding>
-            <element signature="method#HistoryController#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#deleteSelectedRow#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#clearSpecificHistory#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#addListInTable#0;class#HistoryController#0" expanded="false" />
-            <element signature="method#initialize#0;class#HistoryController#0" expanded="false" />
-            <element signature="class#HistoryStoreView#0" expanded="false" />
+            <element signature="docComment;class#Browser#0" expanded="false" />
+            <element signature="docComment;method#createNewTab#0;class#Browser#0" expanded="false" />
+            <element signature="method#createNewTab#0;class#Browser#0" expanded="false" />
+            <element signature="docComment;method#addBehavior#0;class#Browser#0" expanded="false" />
+            <element signature="method#addBehavior#0;class#Browser#0" expanded="false" />
+            <element signature="e#1820#2002#0" expanded="false" />
+            <element signature="e#2099#2180#0" expanded="false" />
+            <element signature="method#createBrowserStage#0;class#Browser#0" expanded="false" />
+            <element signature="method#start#0;class#Browser#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hub/Hub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="132" column="1" lean-forward="true" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
+        <state relative-caret-position="189">
+          <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#BookmarkController#0;class#BookmarkController#0" expanded="false" />
-            <element signature="method#clearSpecificFolder#0;class#BookmarkController#0" expanded="false" />
             <element signature="method#deleteSelectedRow#0;class#BookmarkController#0" expanded="false" />
             <element signature="method#addListInTable#0;class#BookmarkController#0" expanded="false" />
             <element signature="method#addFolders#0;class#BookmarkController#0" expanded="false" />
             <element signature="method#initialize#0;class#BookmarkController#0" expanded="false" />
-            <element signature="e#5190#5935#0" expanded="false" />
             <element signature="class#BookmarkStoreView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/HistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="75" column="46" lean-forward="false" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+          <folding>
+            <element signature="method#HistoryController#0;class#HistoryController#0" expanded="false" />
+            <element signature="method#deleteSelectedRow#0;class#HistoryController#0" expanded="false" />
+            <element signature="method#addListInTable#0;class#HistoryController#0" expanded="false" />
+            <element signature="method#initialize#0;class#HistoryController#0" expanded="false" />
+            <element signature="class#HistoryStoreView#0" expanded="false" />
           </folding>
         </state>
       </provider>
