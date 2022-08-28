@@ -2,7 +2,7 @@ package controllers;
 
 import browser.Browser;
 import com.jfoenix.controls.*;
-import database.BookMarksDataBase;
+import database.BookmarksManagement;
 import database.HistoryManagement;
 import hub.Hub;
 import javafx.beans.value.ChangeListener;
@@ -113,7 +113,7 @@ public class TabController implements Initializable{
     }
 
     public void isBookmark(){
-        boolean isBookmarked = BookMarksDataBase.isBookmarked(link,title,folder);
+        boolean isBookmarked = BookmarksManagement.isBookmarked(link,title,folder);
         if(isBookmarked)
             bookmark.getStyleClass().add("bookmarked");
         else
@@ -133,7 +133,7 @@ public class TabController implements Initializable{
         markNameText.setText(title);
         Label folderLabel = new Label("Folder");
 
-        options =  BookMarksDataBase.folders();
+        options =  BookmarksManagement.folders();
 
         JFXComboBox<String> markFolderList = new JFXComboBox<>(options);
         markFolderList.setMinWidth(300);
@@ -180,7 +180,7 @@ public class TabController implements Initializable{
             if (title == null) {
                 title = webEngine.getTitle();
             }
-            BookMarksDataBase.insert(searchField.getText(), folder,title);
+            BookmarksManagement.insert(searchField.getText(), folder,title);
             isBookmark();
             popOver.hide();
         });
@@ -199,7 +199,7 @@ public class TabController implements Initializable{
                 if(name!=null && !name.isEmpty()){
                     folder = name;
                     options.add(folder);
-                    BookMarksDataBase.insert(searchField.getText(), folder,title);
+                    BookmarksManagement.insert(searchField.getText(), folder,title);
                 }else{
                     Notifications notify = Notifications.create().title("BookMark Folder")
                             .text("No Folder specified.")

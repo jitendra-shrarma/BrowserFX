@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import database.BookMarksDataBase;
+import database.BookmarksManagement;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -31,11 +32,31 @@ public class BookmarkController implements Initializable{
     private JFXTreeTableColumn<BookmarkStoreView, String> timeCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Time");
     private JFXTreeTableColumn<BookmarkStoreView, String> dateCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Date");
 
-    private ObservableList<String> folders = BookMarksDataBase.folders();
+    private ObservableList<String> folders = BookmarksManagement.folders();
     TreeItem parentFolder = new TreeItem<>("All Bookmarks");
 
     public BookmarkController() {
         // TODO Auto-generated constructor stub
+    }
+
+    @FXML void clearSpecificFolder(MouseEvent event) {
+        String selectedFolder = treeView.getSelectionModel().getSelectedItem().getValue().toString();
+        try {
+            BookmarksManagement.deleteFolder(selectedFolder);
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        table.getColumns().clear();
+    }
+
+    @FXML void deleteSelectedRow(MouseEvent event) {
+        try {
+            TreeItem<BookmarkStoreView> selectedItem = table.getSelectionModel().getSelectedItem();
+            selectedItem.getParent().getChildren().remove(selectedItem);
+            BookmarksManagement.delete(selectedItem.getValue().link.getValue());
+        }catch (Exception e){
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
     }
 
     public void addListInTable(ObservableList list) {
@@ -81,7 +102,7 @@ public class BookmarkController implements Initializable{
 
     public void addFolders(){
         parentFolder.getChildren().clear();
-        folders = BookMarksDataBase.folders();
+        folders = BookmarksManagement.folders();
         for(int i=0 ; i< folders.size();i++){
             parentFolder.getChildren().add(new TreeItem<>(folders.get(i)));
         }
@@ -95,7 +116,7 @@ public class BookmarkController implements Initializable{
             if(newValue == parentFolder){
                 addFolders();
             }
-            ResultSet bookmarks = BookMarksDataBase.showBookmarks((String) newValue.getValue());
+            ResultSet bookmarks = BookmarksManagement.showBookmarks((String) newValue.getValue());
             ObservableList<BookmarkStoreView> list = FXCollections.observableArrayList();
             try {
                 while (bookmarks.next()) {

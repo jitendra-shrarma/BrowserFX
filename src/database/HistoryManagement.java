@@ -18,9 +18,7 @@ public class HistoryManagement {
     private static SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a , E");
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-    /**
-     * create table if not exist (tableName = history(url,title,time,date) primary key(url,domain))
-     */
+    /**create table if not exist (tableName = history(url,title,time,date) primary key(url,domain))*/
     public static void create() {
         try {
             String createQuery = "create table if not exists history(url text ,title varchar(40) ,time varchar(20) ,date varchar(20), primary key (url,date));";
@@ -32,9 +30,7 @@ public class HistoryManagement {
         }
     }
 
-    /**
-     * insert data in history table
-     */
+    /**insert data in history table*/
     public static void insert(String url, String title) {
         try {
             dateTime = new Date();
@@ -51,10 +47,22 @@ public class HistoryManagement {
         }
     }
 
-    /**
-     * delete All the history
-     */
-    public static void deleteAll() {
+    /**delete particular History*/
+    public static void delete(String url, String date){
+        try {
+            String deleteQeury = "delete from history where url = ? and date = ? ;";
+            preparedStatement = connection.prepareStatement(deleteQeury);
+            preparedStatement.setString(1,url);
+            preparedStatement.setString(2,date);
+            preparedStatement.execute();
+            preparedStatement.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+    }
+
+    /**delete Full history*/
+    public static void deleteFullHistory() {
         try {
             String deleteQeury = "delete from history;";
             preparedStatement = connection.prepareStatement(deleteQeury);
@@ -65,9 +73,7 @@ public class HistoryManagement {
         }
     }
 
-    /**
-     * it returns ResultSet containing fullHistory
-     */
+    /**it returns ResultSet containing fullHistory*/
     public static ResultSet getFullHistory() {
         try {
             String query = "select * from history order by date,time DESC";
@@ -79,9 +85,26 @@ public class HistoryManagement {
         }
     }
 
-    /**
-     * this function returns history in a specific duration
-     */
+    /**this function delete history in a specific duration*/
+    public static void deleteHistory(int dateRange) {
+        final Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, dateRange);
+        String pastDate = "'" + dateFormat.format(cal.getTime()) + "'";
+        try {
+            String retrieveQuery = null;
+            if (dateRange == 0 || dateRange == -1) {
+                retrieveQuery = "delete from history where date like" + pastDate + " ;";
+            } else {
+                retrieveQuery = "delete from history where date>=" + pastDate + " ;";
+            }
+            preparedStatement = connection.prepareStatement(retrieveQuery);
+            preparedStatement.execute();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage() + " getHistory");
+        }
+    }
+
+    /**this function returns history in a specific duration*/
     public static ResultSet getHistory(int dateRange) {
         final Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, dateRange);
@@ -101,9 +124,25 @@ public class HistoryManagement {
         }
     }
 
-    /**
-     * this function returns pastHourHistory
-     */
+    /**this function delete pastHourHistory*/
+    public static void deletePastHoursHistory(int time) {
+        dateTime = new Date();
+        final Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.HOUR_OF_DAY, time);
+        Date date = cal.getTime();
+
+        String pastHourTime = "'" + timeFormat.format(date) + "'" ;
+        String currentDate = "'" + dateFormat.format(dateTime) + "'";
+        try {
+            String retrieveQeury = "delete from history where Time>" + pastHourTime + "AND Date LIKE " + currentDate + " ;";
+            preparedStatement = connection.prepareStatement(retrieveQeury);
+            preparedStatement.executeQuery();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage() + " pastHoursHistory");
+        }
+    }
+
+    /**this function returns pastHourHistory*/
     public static ResultSet pastHoursHistory(int time) {
         dateTime = new Date();
         final Calendar cal = Calendar.getInstance();

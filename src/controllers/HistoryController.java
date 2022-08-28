@@ -42,7 +42,6 @@ public class HistoryController implements Initializable{
     private JFXTreeTableColumn<HistoryStoreView, String> timeCol = new JFXTreeTableColumn<HistoryStoreView, String>("Time");
     private JFXTreeTableColumn<HistoryStoreView, String> dateCol = new JFXTreeTableColumn<HistoryStoreView, String>("Date");
 
-    private ObservableList<HistoryStoreView> list = FXCollections.observableArrayList();
     private ResultSet resultSet = null;
     private TreeItem rootItem;
 
@@ -50,14 +49,31 @@ public class HistoryController implements Initializable{
         // TODO Auto-generated constructor stub
     }
 
-    @FXML
-    void deleteSelectedRow(MouseEvent event) {
+    @FXML void deleteSelectedRow(MouseEvent event) {
         try {
             TreeItem<HistoryStoreView> selectedItem = table.getSelectionModel().getSelectedItem();
             selectedItem.getParent().getChildren().remove(selectedItem);
+            HistoryManagement.delete(selectedItem.getValue().link.getValue(),selectedItem.getValue().date.getValue());
         }catch (Exception e){
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
+    }
+
+    @FXML void clearSpecificHistory(MouseEvent event) {
+        String selectedTime = treeView.getSelectionModel().getSelectedItem().getValue().toString();
+
+        if (selectedTime.equals("History")) {
+            HistoryManagement.deleteFullHistory();
+        }else if (selectedTime.equals("Past Hour")) {
+            HistoryManagement.deletePastHoursHistory(-1);
+        }else if (selectedTime.equals("Today")) {
+            HistoryManagement.deleteHistory(0);
+        }else if (selectedTime.equals("One Week")) {
+            HistoryManagement.deleteHistory(-7);
+        }else if (selectedTime.equals("One Month")) {
+            HistoryManagement.deleteHistory(-30);
+        }
+        table.getColumns().clear();
     }
 
     public void addListInTable(ObservableList list) {
@@ -69,7 +85,7 @@ public class HistoryController implements Initializable{
                         return param.getValue().getValue().title;
                     }
                 });
-        linkCol.setPrefWidth(300);
+        linkCol.setPrefWidth(350);
         linkCol.setCellValueFactory(
                 new Callback<CellDataFeatures<HistoryStoreView, String>, ObservableValue<String>>() {
                     @Override
@@ -104,7 +120,8 @@ public class HistoryController implements Initializable{
 
     }
 
-    public void initializingView() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         rootItem = new TreeItem("History");
         rootItem.getChildren().addAll(new TreeItem("Past Hour"),
                 new TreeItem("Today"),new TreeItem("One Week"),new TreeItem("One Month"));
@@ -112,17 +129,13 @@ public class HistoryController implements Initializable{
         treeView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.getValue().equals("History")) {
                 resultSet = HistoryManagement.getFullHistory();
-            }
-            if (newValue.getValue().equals("Past Hour")) {
+            }else if (newValue.getValue().equals("Past Hour")) {
                 resultSet = HistoryManagement.pastHoursHistory(-1);
-            }
-            if (newValue.getValue().equals("Today")) {
+            }else if (newValue.getValue().equals("Today")) {
                 resultSet = HistoryManagement.getHistory(0);
-            }
-            if (newValue.getValue().equals("One Week")) {
+            }else if (newValue.getValue().equals("One Week")) {
                 resultSet = HistoryManagement.getHistory(-7);
-            }
-            if (newValue.getValue().equals("One Month")) {
+            }else if (newValue.getValue().equals("One Month")) {
                 resultSet = HistoryManagement.getHistory(-30);
             }
 
@@ -139,11 +152,6 @@ public class HistoryController implements Initializable{
             addListInTable(list);
         });
         treeView.getSelectionModel().select(0);
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        initializingView();
     }
 }
 

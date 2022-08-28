@@ -49,12 +49,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" styleClass="lebel" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
+            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteSelectedRow" prefHeight="40.0" prefWidth="140.0" styleClass="lebel" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="160.0" styleClass="lebel" text="Clear Bookmarks" textFill="WHITE" GridPane.columnIndex="3">
+            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clearSpecificFolder" prefHeight="40.0" prefWidth="160.0" styleClass="lebel" text="Clear Folder" textFill="WHITE" GridPane.columnIndex="3">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

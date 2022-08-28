@@ -11,7 +11,7 @@ import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class BookMarksDataBase {
+public class BookmarksManagement {
 	private static Connection connection = SqliteConnection.databaseConnection;
 	private static PreparedStatement preparedStatement = null;
 	private static Date dateTime;
@@ -45,6 +45,36 @@ public class BookMarksDataBase {
 			preparedStatement.setString(4, time);
 			preparedStatement.setString(5, date);
 			preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+		}
+	}
+
+	/**delete Bookmark*/
+	public static void delete(String url){
+		try {
+			String insert = "delete from bookmark where url = ? ";
+			preparedStatement = connection.prepareStatement(insert);
+			preparedStatement.setString(1, url);
+			boolean b = preparedStatement.execute();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+		}
+	}
+
+	/**delete specific folder*/
+	public static void deleteFolder(String folder) {
+		try {
+			String query = null;
+			if(folder == "All Bookmarks") {
+				query = "delete from bookmark;";
+				preparedStatement = connection.prepareStatement(query);
+			}else {
+				query = "delete from bookmark where folderName = ? ;";
+				preparedStatement = connection.prepareStatement(query);
+				preparedStatement.setString(1, folder);
+			}
+			preparedStatement.execute();
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
