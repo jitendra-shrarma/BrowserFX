@@ -39,7 +39,7 @@
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <JFXTextField fx:id="search" focusColor="WHITE" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#SearchDataInTable" prefHeight="30.0" prefWidth="400.0" promptText="Search URL" unFocusColor="#404040" GridPane.columnIndex="1">
+            <JFXTextField fx:id="search" focusColor="WHITE" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Search URL" unFocusColor="#404040" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font></JFXTextField>
@@ -48,12 +48,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteSelected" prefHeight="40.0" prefWidth="140.0" styleClass="lebel" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
+            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteSelectedRow" prefHeight="40.0" prefWidth="140.0" styleClass="lebel" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteAll" prefHeight="40.0" prefWidth="160.0" styleClass="lebel" text="Clear History" textFill="WHITE" GridPane.columnIndex="3">
+            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="160.0" styleClass="lebel" text="Clear History" textFill="WHITE" GridPane.columnIndex="3">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

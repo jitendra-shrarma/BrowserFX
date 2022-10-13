@@ -1,84 +1,83 @@
 package database;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class BookMarksDataBase {
-	private static Connection c = SqliteConnection.Connector();
-	private static PreparedStatement perp = null;
-	private static java.util.Date dateTime= new java.util.Date();;
-	static SimpleDateFormat formateTime = new SimpleDateFormat("HH:mm:ss");;
-	private static SimpleDateFormat dateFormate = new SimpleDateFormat("yy-MM-dd");
+	private static Connection connection = SqliteConnection.databaseConnection;
+	private static PreparedStatement preparedStatement = null;
+	private static Date dateTime;
+	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
 
-	public static void createBookMarksDataBase() {
+	/**create BookmarkDatabase bookmark(url ,folderName ,title ,time ,date , Primary key(url))*/
+	public static void create() {
 		try {
-			perp = SqliteConnection.Connector().prepareStatement("CREATE TABLE if not exists bookmark(url text ,folder_name varchar(20),"
-					+ "title varchar (30),"
-					+ "time varchar(20),"
-					+ "date varchar(20),"
-					+ " user_id integer,"
-					+ " Primary key(url));");
-			perp.executeUpdate();
+			preparedStatement = connection.prepareStatement("create table if not exists bookmark(url text ,folderName varchar(30),"
+					+ "title varchar (30), time varchar(20), date varchar(20), Primary key(url));");
+			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 	}
 
-	public static void insertBookmarks(String url, String folder, String title, int user_id) {
+	/**insert Bookmark in database*/
+	public static void insert(String url, String folder, String title) {
 		try {
-			String time=formateTime.format(dateTime);
-			String date=dateFormate.format(dateTime);
+			dateTime= new Date();
+			String time= timeFormat.format(dateTime);
+			String date= dateFormat.format(dateTime);
 
-			String insert = "insert or replace into bookmark(url,folder_name,title,time,date,user_id)" + "values(?,?,?,?,?,?)";
-			perp = c.prepareStatement(insert);
+			String insert = "insert or replace into bookmark(url,folderName,title,time,date)" + "values(?,?,?,?,?)";
+			preparedStatement = connection.prepareStatement(insert);
 
-			perp.setString(1, url);
-			perp.setString(2, folder);
-			perp.setString(3, title);
-			perp.setString(4, time);
-			perp.setString(5, date);
-			perp.setInt(6, user_id);
-			perp.executeUpdate();
-			System.out.println("Bookmark Entry added.");
+			preparedStatement.setString(1, url);
+			preparedStatement.setString(2, folder);
+			preparedStatement.setString(3, title);
+			preparedStatement.setString(4, time);
+			preparedStatement.setString(5, date);
+			preparedStatement.executeUpdate();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 	}
 
-	// -------------------------------------show
-	// bookmarks--------------------------------------------
-	public static ResultSet showBookmarks(String folder , int userId) {
+	/**return bookmarks for specific folder*/
+	public static ResultSet showBookmarks(String folder) {
 		ResultSet rs = null;
 		try {
-			String query = "select title, time ,date,url "
-					+ "from bookmark where url in (select url from bookmark where folder_name = ? and user_id = ?);";
-			perp = c.prepareStatement(query);
-			perp.setString(1, folder);
-			perp.setInt(2, userId);
-			rs = perp.executeQuery();
+			String query = null;
+			if(folder == "All Bookmarks") {
+				query = "select url, title, time , date from bookmark;";
+				preparedStatement = connection.prepareStatement(query);
+			}else {
+				query = "select url, title, time , date from bookmark where url in (select url from bookmark where folderName = ?);";
+				preparedStatement = connection.prepareStatement(query);
+				preparedStatement.setString(1, folder);
+			}
+			rs = preparedStatement.executeQuery();
 		} catch (Exception e) {
-			System.out.println("Exception showing bookmarks:");
-			e.printStackTrace();
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 		return rs;
 	}
 
-	public static ObservableList<String> folders(int userId) {
+	/**return all distinct folders*/
+	public static ObservableList<String> folders() {
 		ResultSet rs;
-		String query = null;
+		String query = "select distinct folderName from bookmark order by folderName;";
 		ObservableList<String> list = FXCollections.observableArrayList();
-		query = "select distinct folder_name from bookmark where user_id = ?;";
 		try {
-			perp = c.prepareStatement(query);
-			perp.setInt(1, userId);
-			rs = perp.executeQuery();
+			preparedStatement = connection.prepareStatement(query);
+			rs = preparedStatement.executeQuery();
 			while (rs.next()) {
 				String folder = rs.getString(1);
 				if (folder != null) {
@@ -86,24 +85,25 @@ public class BookMarksDataBase {
 				}
 			}
 		} catch (SQLException e) {
-			System.out.println("Error retrieving folder names.");
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 		return list;
 	}
 
+	/**search database weather the url is bookmarked*/
 	public static boolean isBookmarked(String url, String title, String folder){
 		try{
-			String query = "select title,folder_name from bookmark where url = ? ;";
-			perp = c.prepareStatement(query);
-			perp.setString(1,url);
-			ResultSet rs = perp.executeQuery();
+			String query = "select title,folderName from bookmark where url = ? ;";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1,url);
+			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()){
 				title = rs.getString(1);
 				folder = rs.getString(2);
 				return true;
 			}
 		}catch (SQLException e){
-			System.out.println("getting Bookmark problem");
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 		return false;
 	}

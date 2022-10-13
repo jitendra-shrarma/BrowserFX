@@ -21,7 +21,6 @@ public class Hub extends Application{
             stage.setIconified(false);
         }
         stage.show();
-        historyController.initializeListsWithData();
     }
 
     @Override
@@ -37,7 +36,7 @@ public class Hub extends Application{
             System.out.println("Hub error");
         }
         //remove it after completion of hub
-        //primaryStage.show();
+        primaryStage.show();
     }
 
     public static void main(String[] args) {

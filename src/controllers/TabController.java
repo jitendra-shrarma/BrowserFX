@@ -133,7 +133,7 @@ public class TabController implements Initializable{
         markNameText.setText(title);
         Label folderLabel = new Label("Folder");
 
-        options =  BookMarksDataBase.folders(1);
+        options =  BookMarksDataBase.folders();
 
         JFXComboBox<String> markFolderList = new JFXComboBox<>(options);
         markFolderList.setMinWidth(300);
@@ -180,7 +180,8 @@ public class TabController implements Initializable{
             if (title == null) {
                 title = webEngine.getTitle();
             }
-            BookMarksDataBase.insertBookmarks(searchField.getText(), folder,title,1);
+            BookMarksDataBase.insert(searchField.getText(), folder,title);
+            isBookmark();
             popOver.hide();
         });
         newFolderMarkFolder.addEventHandler(MouseEvent.MOUSE_CLICKED, event2 -> {
@@ -198,7 +199,7 @@ public class TabController implements Initializable{
                 if(name!=null && !name.isEmpty()){
                     folder = name;
                     options.add(folder);
-                    BookMarksDataBase.insertBookmarks(searchField.getText(), folder,title,1);
+                    BookMarksDataBase.insert(searchField.getText(), folder,title);
                 }else{
                     Notifications notify = Notifications.create().title("BookMark Folder")
                             .text("No Folder specified.")

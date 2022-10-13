@@ -3,99 +3,123 @@ package controllers;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import database.BookMarksDataBase;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
+
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class BookmarkController implements Initializable{
 
     @FXML private TreeView<?> treeView;
     @FXML private JFXTextField search;
-    @FXML private JFXTreeTableView<HistoryStoreView> table;
+    @FXML private JFXTreeTableView<BookmarkStoreView> table;
 
-    private JFXTreeTableColumn<URLdetails, String> nameCol =  new JFXTreeTableColumn<>("name");
-    private JFXTreeTableColumn<URLdetails, String> timeCol =  new JFXTreeTableColumn<>("time");
-    private JFXTreeTableColumn<URLdetails, String> dateCol =  new JFXTreeTableColumn<>("date");
-    private JFXTreeTableColumn<URLdetails, String> locationCol =  new JFXTreeTableColumn<>("location");
+    private JFXTreeTableColumn<BookmarkStoreView, String> nameCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Name");
+    private JFXTreeTableColumn<BookmarkStoreView, String> linkCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Link");
+    private JFXTreeTableColumn<BookmarkStoreView, String> timeCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Time");
+    private JFXTreeTableColumn<BookmarkStoreView, String> dateCol = new JFXTreeTableColumn<BookmarkStoreView, String>("Date");
 
-    public static ObservableList<URLdetails> list = FXCollections.observableArrayList();
+    private ObservableList<String> folders = BookMarksDataBase.folders();
     TreeItem parentFolder = new TreeItem<>("All Bookmarks");
-    private ObservableList<String> folders = BookMarksDataBase.folders(1);
 
     public BookmarkController() {
         // TODO Auto-generated constructor stub
     }
 
-    @FXML void deleteAll(MouseEvent event) {
+    public void addListInTable(ObservableList list) {
+        nameCol.setPrefWidth(200);
+        nameCol.setCellValueFactory(
+                new Callback<TreeTableColumn.CellDataFeatures<BookmarkStoreView, String>, ObservableValue<String>>() {
+                    @Override
+                    public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<BookmarkStoreView, String> param) {
+                        return param.getValue().getValue().name;
+                    }
+                });
+        linkCol.setPrefWidth(350);
+        linkCol.setCellValueFactory(
+                new Callback<TreeTableColumn.CellDataFeatures<BookmarkStoreView, String>, ObservableValue<String>>() {
+                    @Override
+                    public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<BookmarkStoreView, String> param) {
+                        return param.getValue().getValue().link;
+                    }
+                });
+        timeCol.setPrefWidth(100);
+        timeCol.setCellValueFactory(
+                new Callback<TreeTableColumn.CellDataFeatures<BookmarkStoreView, String>, ObservableValue<String>>() {
+                    @Override
+                    public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<BookmarkStoreView, String> param) {
+                        return param.getValue().getValue().time;
+                    }
+                });
+        dateCol.setPrefWidth(100);
+        dateCol.setCellValueFactory(
+                new Callback<TreeTableColumn.CellDataFeatures<BookmarkStoreView, String>, ObservableValue<String>>() {
+                    @Override
+                    public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<BookmarkStoreView, String> param) {
+                        return param.getValue().getValue().date;
+                    }
+                });
 
+        final TreeItem<BookmarkStoreView> root = new RecursiveTreeItem<BookmarkStoreView>(list,
+                RecursiveTreeObject::getChildren);
+        table.getColumns().setAll(nameCol, linkCol, timeCol, dateCol);
+        table.setRoot(root);
+        table.setShowRoot(false);
     }
 
-    @FXML void deleteSelected(MouseEvent event) {
-
-    }
-
-    @FXML void SearchDataInTable(KeyEvent event) {
-
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        folders.sorted();
+    public void addFolders(){
+        parentFolder.getChildren().clear();
+        folders = BookMarksDataBase.folders();
         for(int i=0 ; i< folders.size();i++){
-            System.out.println(i);
             parentFolder.getChildren().add(new TreeItem<>(folders.get(i)));
         }
         treeView.setRoot(parentFolder);
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        addFolders();
+        treeView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
+            if(newValue == parentFolder){
+                addFolders();
+            }
+            ResultSet bookmarks = BookMarksDataBase.showBookmarks((String) newValue.getValue());
+            ObservableList<BookmarkStoreView> list = FXCollections.observableArrayList();
+            try {
+                while (bookmarks.next()) {
+                    list.add(new BookmarkStoreView(bookmarks.getString(1), bookmarks.getString(2),
+                            bookmarks.getString(3), bookmarks.getString(4)));
+                }
+            } catch (Exception e) {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            }
+            addListInTable(list);
+        });
+        treeView.getSelectionModel().select(0);
+    }
 }
 
-
-class URLdetails {
-    private	StringProperty name;
-    private	StringProperty time;
-    private	StringProperty date;
-    private	StringProperty location;
-    public URLdetails(String name , String time,String date, String location){
+class BookmarkStoreView extends RecursiveTreeObject<BookmarkStoreView> {
+    StringProperty name;
+    StringProperty link;
+    StringProperty time;
+    StringProperty date;
+    public BookmarkStoreView( String link ,String name ,String time ,String date) {
         this.name = new SimpleStringProperty(name);
+        this.link = new SimpleStringProperty(link);
         this.time = new SimpleStringProperty(time);
         this.date = new SimpleStringProperty(date);
-        this.location = new SimpleStringProperty(location);
-    }
-    public String getName() {
-        return name.get();
-    }
-    public String getDate() {
-        return date.get();
-    }
-    public String getLocation() {
-        return location.get();
-    }
-    public String getTime() {
-        return time.get();
-    }
-    public void setName(String name){
-        this.name = new SimpleStringProperty(name);
-    }
-    public void setTime(String time){
-        this.time = new SimpleStringProperty(time);
-    }
-    public void setDate(String date){
-        this.date = new SimpleStringProperty(date);
-    }
-    public void setLocation(String location){
-        this.location =new SimpleStringProperty(location);
-    }
-    @Override
-    public String toString(){
-        return this.location.toString();
     }
 }

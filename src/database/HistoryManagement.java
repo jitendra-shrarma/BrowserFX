@@ -1,5 +1,6 @@
 package database;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
@@ -11,28 +12,23 @@ import javafx.collections.ObservableList;
 
 public class HistoryManagement {
 
-    private static PreparedStatement perp = null;
+    private static Connection connection = SqliteConnection.databaseConnection;
+    private static PreparedStatement preparedStatement = null;
     private static Date dateTime;
-    private static SimpleDateFormat timeFormat;
-    private static SimpleDateFormat dateFormat;
-    private static boolean queryOutput = false;
-
-    static {
-        timeFormat = new SimpleDateFormat("HH:mm:ss");
-        dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-    }
+    private static SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a , E");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     /**
      * create table if not exist (tableName = history(url,title,time,date) primary key(url,domain))
      */
     public static void create() {
         try {
-            String createQuery = "create table if not exists history(url text ,title varchar(40) ,time varchar(30) ,date varchar(30), primary key (url,date));";
-            perp = SqliteConnection.Connector().prepareStatement(createQuery);
-            perp.execute();
-            perp.close();
+            String createQuery = "create table if not exists history(url text ,title varchar(40) ,time varchar(20) ,date varchar(20), primary key (url,date));";
+            preparedStatement = connection.prepareStatement(createQuery);
+            preparedStatement.execute();
+            preparedStatement.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage() + " create1");
         }
     }
 
@@ -43,25 +39,15 @@ public class HistoryManagement {
         try {
             dateTime = new Date();
             String insertQuery = "insert or replace into history(url,title,time,date) values(?,?,?,?)";
-            String time = timeFormat.format(dateTime);
-            String date = dateFormat.format(dateTime);
-
-            System.out.println("Current time = "+time);
-            System.out.println("Current date = "+date);
-
-            perp = SqliteConnection.Connector().prepareStatement(insertQuery);
-            perp.setString(1,url);
-            perp.setString(2,title);
-            perp.setString(3, time);
-            perp.setString(4, date);
-            queryOutput = perp.execute();
-
-            if(queryOutput)
-                System.out.println("data has been inserted");
-
-            perp.close();
+            preparedStatement = connection.prepareStatement(insertQuery);
+            preparedStatement.setString(1,url);
+            preparedStatement.setString(2,title);
+            preparedStatement.setString(3, timeFormat.format(dateTime));
+            preparedStatement.setString(4, dateFormat.format(dateTime));
+            preparedStatement.execute();
+            preparedStatement.close();
         } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.err.println(e.getClass().getName() + ": " + e.getMessage() + " create2");
         }
     }
 
@@ -71,111 +57,68 @@ public class HistoryManagement {
     public static void deleteAll() {
         try {
             String deleteQeury = "delete from history;";
-            perp = SqliteConnection.Connector().prepareStatement(deleteQeury);
-            System.out.println("Histroy cleared");
-            perp.executeUpdate();
-            perp.close();
+            preparedStatement = connection.prepareStatement(deleteQeury);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
     /**
-     * it returns ObservableList containing fullHistory
+     * it returns ResultSet containing fullHistory
      */
-    public static ObservableList getfullHistory(ObservableList list) {
-        ResultSet rs = null;
+    public static ResultSet getFullHistory() {
         try {
             String query = "select * from history order by date,time DESC";
-            perp = SqliteConnection.Connector().prepareStatement(query);
-            rs = perp.executeQuery();
-
-            while (rs.next()) {
-                String link1 = rs.getString(1);
-                String title1 = rs.getString(2);
-                String time1 = rs.getString(3);
-                String date1 = rs.getString(4);
-
-                System.out.println(link1 + title1 + time1 + date1);
-                HistoryController.addDataInList(link1, title1, time1, date1, list);
-            }
-            perp.close();
+            preparedStatement = connection.prepareStatement(query);
+            return preparedStatement.executeQuery();
         } catch (Exception e) {
-            System.out.println("issue in pasthourHistory");
-        }
-        finally {
-            return list;
+            System.err.println(e.getClass().getName() + ": " + e.getMessage() + " getFullHistory");
+            return null;
         }
     }
 
     /**
      * this function returns history in a specific duration
      */
-    public static ObservableList getHistory(ObservableList list, int dateRange) {
-        ResultSet rs = null;
-
+    public static ResultSet getHistory(int dateRange) {
         final Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, dateRange);
-        String pastDate = dateFormat.format(cal.getTime());
-        pastDate = "'" + pastDate + "'";
-        System.out.println("Past Date : " +pastDate);
-
+        String pastDate = "'" + dateFormat.format(cal.getTime()) + "'";
         try {
-            String retrieveQuery = "select * from history where Date like" + pastDate +";";
-            perp = SqliteConnection.Connector().prepareStatement(retrieveQuery);
-            rs = perp.executeQuery();
-
-            while (rs.next()) {
-                String link1 = rs.getString(1);
-                String title1 = rs.getString(2);
-                String time1 = rs.getString(3);
-                String date1 = rs.getString(4);
-
-                System.out.println(link1 + title1 + time1 + date1);
-                HistoryController.addDataInList(link1, title1, time1, date1, list);
+            String retrieveQuery = null;
+            if (dateRange == 0 || dateRange == -1) {
+                retrieveQuery = "select * from history where date like" + pastDate + " Order BY time DESC;";
+            } else {
+                retrieveQuery = "select * from history where date>=" + pastDate + " Order BY date DESC;";
             }
-            perp.close();
+            preparedStatement = connection.prepareStatement(retrieveQuery);
+            return preparedStatement.executeQuery();
         } catch (Exception e) {
-            System.out.println("isseus in getHistory method ");
+            System.err.println(e.getClass().getName() + ": " + e.getMessage() + " getHistory");
+            return null;
         }
-        return list;
     }
 
     /**
      * this function returns pastHourHistory
      */
-    public static ObservableList pastHoursHistory(ObservableList pastHour, int time) {
+    public static ResultSet pastHoursHistory(int time) {
         dateTime = new Date();
-        ResultSet rs = null;
         final Calendar cal = Calendar.getInstance();
         cal.add(Calendar.HOUR_OF_DAY, time);
         Date date = cal.getTime();
 
-        String pastHourTime = timeFormat.format(date);
-        pastHourTime = "'" + pastHourTime + "'";
-        System.out.println("Past Hour Time : "+pastHourTime);
-
-        String currentDate = dateFormat.format(dateTime);
-        currentDate = "'" + currentDate + "'";
-        System.out.println("Current date : "+currentDate);
-
+        String pastHourTime = "'" + timeFormat.format(date) + "'" ;
+        String currentDate = "'" + dateFormat.format(dateTime) + "'";
         try {
             String retrieveQeury = "select * from history where Time>" + pastHourTime + "AND Date LIKE " + currentDate + "order by Time DESC;";
-            perp = SqliteConnection.Connector().prepareStatement(retrieveQeury);
-            rs = perp.executeQuery();
-            while (rs.next()) {
-                String link1 = rs.getString(1);
-                String title1 = rs.getString(2);
-                String time1 = rs.getString(3);
-                String date1 = rs.getString(4);
-
-                System.out.println(link1 + title1 + time1 + date1);
-                HistoryController.addDataInList(link1, title1, time1, date1, pastHour);
-            }
-            perp.close();
+            preparedStatement = connection.prepareStatement(retrieveQeury);
+            return preparedStatement.executeQuery();
         } catch (Exception e) {
-            System.out.println("issue in pasthourHistory");
+            System.err.println(e.getClass().getName() + ": " + e.getMessage() + " pastHoursHistory");
         }
-        return pastHour;
+        return null;
     }
 }

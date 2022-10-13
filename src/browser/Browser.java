@@ -105,7 +105,7 @@ public class Browser extends Application {
 
     public static void main(String[] args) {
         HistoryManagement.create();
-        BookMarksDataBase.createBookMarksDataBase();
+        BookMarksDataBase.create();
         launch(args);
     }
 }
