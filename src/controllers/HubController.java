@@ -14,7 +14,6 @@ public class HubController implements Initializable {
 
     @FXML private Tab history;
     @FXML private Tab bookmark;
-    @FXML private Tab downloads;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

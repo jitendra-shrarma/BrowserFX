@@ -21,7 +21,6 @@
     <pathelement location="${basedir}/jar/StageFX.jar"/>
     <pathelement location="${basedir}/jar/controlsfx-8.40.14.jar"/>
     <pathelement location="${basedir}/jar/sqlite-jdbc-3.20.1.jar"/>
-    <pathelement location="${basedir}/jar/TabPaneFX.jar"/>
   </path>
   
   <path id="browserfx.runtime.production.module.classpath">
@@ -30,7 +29,6 @@
     <pathelement location="${basedir}/jar/StageFX.jar"/>
     <pathelement location="${basedir}/jar/controlsfx-8.40.14.jar"/>
     <pathelement location="${basedir}/jar/sqlite-jdbc-3.20.1.jar"/>
-    <pathelement location="${basedir}/jar/TabPaneFX.jar"/>
   </path>
   
   <path id="browserfx.module.classpath">
@@ -40,7 +38,6 @@
     <pathelement location="${basedir}/jar/StageFX.jar"/>
     <pathelement location="${basedir}/jar/controlsfx-8.40.14.jar"/>
     <pathelement location="${basedir}/jar/sqlite-jdbc-3.20.1.jar"/>
-    <pathelement location="${basedir}/jar/TabPaneFX.jar"/>
   </path>
   
   <path id="browserfx.runtime.module.classpath">
@@ -50,7 +47,6 @@
     <pathelement location="${basedir}/jar/StageFX.jar"/>
     <pathelement location="${basedir}/jar/controlsfx-8.40.14.jar"/>
     <pathelement location="${basedir}/jar/sqlite-jdbc-3.20.1.jar"/>
-    <pathelement location="${basedir}/jar/TabPaneFX.jar"/>
   </path>
   
   

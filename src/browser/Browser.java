@@ -1,7 +1,7 @@
 package browser;
 
 import BrowserStage.Stage.SceneFX;
-import database.BookmarksManagement;
+import database.BookMarksDataBase;
 import database.HistoryManagement;
 import javafx.application.Application;
 import javafx.collections.ListChangeListener;
@@ -105,7 +105,7 @@ public class Browser extends Application {
 
     public static void main(String[] args) {
         HistoryManagement.create();
-        BookmarksManagement.create();
+        BookMarksDataBase.createBookMarksDataBase();
         launch(args);
     }
 }

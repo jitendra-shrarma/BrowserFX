@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="BrowserFX:jar" />
+      <artifact name="unnamed" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -18,6 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/BrowserFX$unnamed_jar.coverage" NAME="unnamed.jar Coverage Results" MODIFIED="1533746058277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/BrowserFX$Browser.coverage" NAME="Browser Coverage Results" MODIFIED="1533658647436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>browser.*</FILTER>
     </SUITE>
@@ -68,11 +69,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BookmarkPopOverController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkPopOverController.java">
+      <file leaf-file-name="BookmarkController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,24 +81,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TabController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/TabController.java">
+      <file leaf-file-name="Hub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hub/Hub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="115" column="55" lean-forward="false" selection-start-line="115" selection-start-column="55" selection-end-line="115" selection-end-column="55" />
+            <state relative-caret-position="238">
+              <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Browser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/browser/Browser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-867">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
-                <element signature="method#goBack#0;class#TabController#0" expanded="false" />
-                <element signature="method#goNext#0;class#TabController#0" expanded="false" />
-                <element signature="method#refreshPage#0;class#TabController#0" expanded="false" />
-                <element signature="method#search#0;class#TabController#0" expanded="false" />
-                <element signature="e#3661#3662#0" expanded="true" />
-                <element signature="e#3687#3688#0" expanded="true" />
-                <element signature="e#3729#3730#0" expanded="true" />
-                <element signature="e#3779#3780#0" expanded="true" />
-                <element signature="method#webViewBehaviour#0;class#TabController#0" expanded="false" />
-                <element signature="method#engineBehaviour#0;class#TabController#0" expanded="false" />
-                <element signature="method#initialize#0;class#TabController#0" expanded="false" />
-                <element signature="method#getWebIcon#0;class#TabController#0" expanded="false" />
+                <element signature="docComment;class#Browser#0" expanded="false" />
+                <element signature="docComment;method#createNewTab#0;class#Browser#0" expanded="false" />
+                <element signature="docComment;method#addBehavior#0;class#Browser#0" expanded="false" />
+                <element signature="e#1818#2000#0" expanded="false" />
+                <element signature="e#2097#2178#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -138,9 +142,7 @@
         <option value="$PROJECT_DIR$/src/resources/fxml/BookmarkPop.fxml" />
         <option value="$PROJECT_DIR$/src/bookmark/BookMarks.java" />
         <option value="$PROJECT_DIR$/src/database/HistoryManagment.java" />
-        <option value="$PROJECT_DIR$/src/database/BookMarksDataBase.java" />
         <option value="$PROJECT_DIR$/src/database/BookMarkManagement.java" />
-        <option value="$PROJECT_DIR$/src/resources/css/BookmarkPop.css" />
         <option value="$PROJECT_DIR$/src/database/SqliteConnection.java" />
         <option value="$PROJECT_DIR$/src/controllers/BookmarkPopController.java" />
         <option value="$PROJECT_DIR$/src/resources/fxml/hub.fxml" />
@@ -153,17 +155,19 @@
         <option value="$PROJECT_DIR$/src/resources/fxml/Bookmarks.fxml" />
         <option value="$PROJECT_DIR$/src/hub/history/History.java" />
         <option value="$PROJECT_DIR$/src/resources/fxml/History.fxml" />
-        <option value="$PROJECT_DIR$/DataBase.db" />
-        <option value="$PROJECT_DIR$/src/database/HistoryManagement.java" />
-        <option value="$PROJECT_DIR$/src/browser/Browser.java" />
-        <option value="$PROJECT_DIR$/src/controllers/HubController.java" />
-        <option value="$PROJECT_DIR$/src/database/BookmarksManagement.java" />
         <option value="$PROJECT_DIR$/src/controllers/HistoryController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/BookmarkPopOverController.java" />
+        <option value="$PROJECT_DIR$/src/database/BookmarksManagement.java" />
+        <option value="$PROJECT_DIR$/src/browser/Browser.java" />
+        <option value="$PROJECT_DIR$/DataBase.db" />
+        <option value="$PROJECT_DIR$/src/resources/css/BookmarkPop.css" />
+        <option value="$PROJECT_DIR$/src/resources/css/Tab.css" />
+        <option value="$PROJECT_DIR$/src/controllers/TabController.java" />
+        <option value="$PROJECT_DIR$/src/database/HistoryManagement.java" />
+        <option value="$PROJECT_DIR$/src/controllers/HubController.java" />
+        <option value="$PROJECT_DIR$/src/database/BookMarksDataBase.java" />
         <option value="$PROJECT_DIR$/src/controllers/BookmarkController.java" />
         <option value="$PROJECT_DIR$/src/hub/Hub.java" />
-        <option value="$PROJECT_DIR$/src/controllers/BookmarkPopOverController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/TabController.java" />
-        <option value="$PROJECT_DIR$/src/resources/css/Tab.css" />
       </list>
     </option>
   </component>
@@ -193,19 +197,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="BrowserFX" type="b2602c69:ProjectViewProjectNode" />
               <item name="BrowserFX" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BrowserFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BrowserFX" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BrowserFX" type="b2602c69:ProjectViewProjectNode" />
@@ -229,7 +226,7 @@
               <item name="BrowserFX" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="HistoryController.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="BookmarkController.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="BrowserFX" type="b2602c69:ProjectViewProjectNode" />
@@ -249,11 +246,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BrowserFX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BrowserFX" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="fxml" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -269,7 +275,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/jar/TabPaneFX.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
@@ -283,6 +289,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\GOD_HAND\Documents\GitHub\BrowserFX\src" />
       <recent name="C:\Users\GOD_HAND\Documents\GitHub\BrowserFX\src\database" />
       <recent name="C:\Users\GOD_HAND\Documents\GitHub\BrowserFX\src\resources\fxml" />
       <recent name="C:\Users\GOD_HAND\Documents\GitHub\BrowserFX\src\bookmark" />
@@ -426,6 +433,11 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/BrowserFX_jar/BrowserFX.jar" />
       <envs />
     </configuration>
+    <configuration name="unnamed.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/unnamed/unnamed.jar" />
+      <envs />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -478,19 +490,21 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Browser" />
       <item index="2" class="java.lang.String" itemvalue="Application.Exaple" />
       <item index="3" class="java.lang.String" itemvalue="JAR Application.BrowserFX.jar" />
       <item index="4" class="java.lang.String" itemvalue="Application.Hub" />
+      <item index="5" class="java.lang.String" itemvalue="JAR Application.unnamed.jar" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Browser" />
         <item index="1" class="java.lang.String" itemvalue="Application.Hub" />
-        <item index="2" class="java.lang.String" itemvalue="JAR Application.BrowserFX.jar" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Exaple" />
+        <item index="2" class="java.lang.String" itemvalue="JAR Application.unnamed.jar" />
+        <item index="3" class="java.lang.String" itemvalue="JAR Application.BrowserFX.jar" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Exaple" />
       </list>
     </recent_temporary>
   </component>
@@ -516,7 +530,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -526,13 +539,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3312203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3312203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -550,7 +564,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -565,7 +578,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -574,16 +587,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/tabpanefx/Exaple.java" />
-    <entry file="file://$PROJECT_DIR$/src/tabpanefx/TabPaneFX.java" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/settings/SearchEngine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -628,27 +631,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/css/BookmarkPop.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="33" lean-forward="false" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/fxml/Main.fxml" />
     <entry file="file://$PROJECT_DIR$/src/controllers/MainController.java" />
     <entry file="file://$PROJECT_DIR$/src/resources/fxml/Hub.java" />
-    <entry file="file://$PROJECT_DIR$/src/resources/fxml/Hub.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/fxml/Downloads.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -668,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,123 +668,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/fxml/Bookmarks.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="124" lean-forward="false" selection-start-line="51" selection-start-column="124" selection-end-line="51" selection-end-column="124" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase.db">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/HubController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" column="103" lean-forward="false" selection-start-line="21" selection-start-column="103" selection-end-line="21" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/css/Hub.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/HistoryManagement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="46" column="45" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="46" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#create#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="method#create#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="docComment;method#insert#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="docComment;method#deleteAll#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="method#deleteAll#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="docComment;method#getfullHistory#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="method#getfullHistory#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="docComment;method#getHistory#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="method#getHistory#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="docComment;method#pastHoursHistory#0;class#HistoryManagement#0" expanded="false" />
-            <element signature="method#pastHoursHistory#0;class#HistoryManagement#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/HistoryController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="174" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1298#1324#0" expanded="true" />
-            <element signature="e#1425#1451#0" expanded="true" />
-            <element signature="e#1557#1583#0" expanded="true" />
-            <element signature="e#1682#1708#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1298#1324#0" expanded="false" />
+            <element signature="e#1425#1451#0" expanded="false" />
+            <element signature="e#1557#1583#0" expanded="false" />
+            <element signature="e#1682#1708#0" expanded="false" />
             <element signature="method#HistoryController#0;class#HistoryController#0" expanded="false" />
             <element signature="method#initializeListsWithData#0;class#HistoryController#0" expanded="false" />
             <element signature="method#addDataInList#0;class#HistoryController#0" expanded="false" />
-            <element signature="e#4840#4858#0" expanded="true" />
+            <element signature="e#4840#4858#0" expanded="false" />
             <element signature="method#getStoreItems#0;class#HistoryController#0" expanded="false" />
-            <element signature="e#5170#5180#0" expanded="true" />
+            <element signature="e#5170#5180#0" expanded="false" />
             <element signature="method#initializingView#0;class#HistoryController#0" expanded="false" />
             <element signature="method#deleteAll#0;class#HistoryController#0" expanded="false" />
             <element signature="method#deleteSelected#0;class#HistoryController#0" expanded="false" />
             <element signature="method#SearchDataInTable#0;class#HistoryController#0" expanded="false" />
             <element signature="method#initialize#0;class#HistoryController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/BookmarksManagement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="initializer##0;class#BookmarksManagement#0" expanded="false" />
-            <element signature="method#create#0;class#BookmarksManagement#0" expanded="false" />
-            <element signature="method#isBookmarked#0;class#BookmarksManagement#0" expanded="false" />
-            <element signature="method#insert#0;class#BookmarksManagement#0" expanded="false" />
-            <element signature="method#showBookmarks#0;class#BookmarksManagement#0" expanded="false" />
-            <element signature="method#folders#0;class#BookmarksManagement#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="106" column="11" lean-forward="true" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1191#1217#0" expanded="true" />
-            <element signature="e#1318#1344#0" expanded="true" />
-            <element signature="e#1450#1476#0" expanded="true" />
-            <element signature="e#1575#1601#0" expanded="true" />
-            <element signature="method#addListInTable#0;class#BookmarkController#0" expanded="false" />
-            <element signature="e#4739#4757#0" expanded="true" />
-            <element signature="method#deleteSelected#0;class#BookmarkController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hub/Hub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -816,21 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/browser/Browser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding>
-            <element signature="docComment;class#Browser#0" expanded="false" />
-            <element signature="docComment;method#createNewTab#0;class#Browser#0" expanded="false" />
-            <element signature="docComment;method#addBehavior#0;class#Browser#0" expanded="false" />
-            <element signature="e#1820#2002#0" expanded="false" />
-            <element signature="e#2099#2180#0" expanded="false" />
-            <element signature="method#createBrowserStage#0;class#Browser#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/fxml/BookmarkPop.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -838,45 +711,190 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkPopOverController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/java/util/Optional.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBase.db">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/BookmarkPop.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/css/Tab.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="102" column="36" lean-forward="false" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
+        <state relative-caret-position="295">
+          <caret line="109" column="1" lean-forward="false" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkPopOverController.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/css/Hub.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/fxml/Bookmarks.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="51" column="124" lean-forward="false" selection-start-line="51" selection-start-column="124" selection-end-line="51" selection-end-column="124" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/TabController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="114" column="28" lean-forward="false" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="initializer##0;class#TabController#0" expanded="false" />
+            <element signature="method#goBack#0;class#TabController#0" expanded="false" />
+            <element signature="method#goNext#0;class#TabController#0" expanded="false" />
+            <element signature="method#refreshPage#0;class#TabController#0" expanded="false" />
+            <element signature="method#refreshOrCancel#0;class#TabController#0" expanded="false" />
+            <element signature="method#search#0;class#TabController#0" expanded="false" />
+            <element signature="method#isBookmark#0;class#TabController#0" expanded="false" />
+            <element signature="method#addBookmark#0;class#TabController#0" expanded="false" />
+            <element signature="method#webViewBehaviour#0;class#TabController#0" expanded="false" />
+            <element signature="method#engineBehaviour#0;class#TabController#0" expanded="false" />
+            <element signature="method#initialize#0;class#TabController#0" expanded="false" />
+            <element signature="method#getWebIcon#0;class#TabController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/HistoryManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding>
+            <element signature="initializer##0;class#HistoryManagement#0" expanded="false" />
+            <element signature="docComment;method#create#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="method#create#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="docComment;method#insert#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="method#insert#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="docComment;method#deleteAll#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="docComment;method#getfullHistory#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="method#getfullHistory#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="docComment;method#getHistory#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="method#getHistory#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="docComment;method#pastHoursHistory#0;class#HistoryManagement#0" expanded="false" />
+            <element signature="method#pastHoursHistory#0;class#HistoryManagement#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/fxml/Hub.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/HubController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bookmarks/URLdetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="44" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bookmarks/BookMarks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="84" column="15" lean-forward="false" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bookmarks/PopulateTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/BookMarksDataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="76" column="76" lean-forward="false" selection-start-line="76" selection-start-column="76" selection-end-line="76" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/BookmarkController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/TabController.java">
+    <entry file="file://$PROJECT_DIR$/src/hub/Hub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="115" column="55" lean-forward="false" selection-start-line="115" selection-start-column="55" selection-end-line="115" selection-end-column="55" />
+        <state relative-caret-position="238">
+          <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/browser/Browser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-867">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="method#goBack#0;class#TabController#0" expanded="false" />
-            <element signature="method#goNext#0;class#TabController#0" expanded="false" />
-            <element signature="method#refreshPage#0;class#TabController#0" expanded="false" />
-            <element signature="method#search#0;class#TabController#0" expanded="false" />
-            <element signature="e#3661#3662#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
-            <element signature="e#3729#3730#0" expanded="true" />
-            <element signature="e#3779#3780#0" expanded="true" />
-            <element signature="method#webViewBehaviour#0;class#TabController#0" expanded="false" />
-            <element signature="method#engineBehaviour#0;class#TabController#0" expanded="false" />
-            <element signature="method#initialize#0;class#TabController#0" expanded="false" />
-            <element signature="method#getWebIcon#0;class#TabController#0" expanded="false" />
+            <element signature="docComment;class#Browser#0" expanded="false" />
+            <element signature="docComment;method#createNewTab#0;class#Browser#0" expanded="false" />
+            <element signature="docComment;method#addBehavior#0;class#Browser#0" expanded="false" />
+            <element signature="e#1818#2000#0" expanded="false" />
+            <element signature="e#2097#2178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -886,8 +904,13 @@
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
-          <artifact-editor />
-          <last-edited>BrowserFX:jar</last-edited>
+          <artifact-editor>
+            <show-content>
+              <type id="artifact" />
+              <type id="library" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>unnamed</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

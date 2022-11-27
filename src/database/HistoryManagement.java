@@ -74,6 +74,7 @@ public class HistoryManagement {
             perp = SqliteConnection.Connector().prepareStatement(deleteQeury);
             System.out.println("Histroy cleared");
             perp.executeUpdate();
+            perp.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -98,7 +99,6 @@ public class HistoryManagement {
                 System.out.println(link1 + title1 + time1 + date1);
                 HistoryController.addDataInList(link1, title1, time1, date1, list);
             }
-            rs.close();
             perp.close();
         } catch (Exception e) {
             System.out.println("issue in pasthourHistory");
@@ -134,7 +134,6 @@ public class HistoryManagement {
                 System.out.println(link1 + title1 + time1 + date1);
                 HistoryController.addDataInList(link1, title1, time1, date1, list);
             }
-            rs.close();
             perp.close();
         } catch (Exception e) {
             System.out.println("isseus in getHistory method ");
@@ -173,6 +172,7 @@ public class HistoryManagement {
                 System.out.println(link1 + title1 + time1 + date1);
                 HistoryController.addDataInList(link1, title1, time1, date1, pastHour);
             }
+            perp.close();
         } catch (Exception e) {
             System.out.println("issue in pasthourHistory");
         }

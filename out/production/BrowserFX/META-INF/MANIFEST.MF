@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: StageFX.jar controlsfx-8.40.14.jar TabPaneFX.jar jfoenix-8
+ .0.1.jar sqlite-jdbc-3.20.1.jar
+Main-Class: browser.Browser
+

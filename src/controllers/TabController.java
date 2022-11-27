@@ -2,7 +2,7 @@ package controllers;
 
 import browser.Browser;
 import com.jfoenix.controls.*;
-import database.BookmarksManagement;
+import database.BookMarksDataBase;
 import database.HistoryManagement;
 import hub.Hub;
 import javafx.beans.value.ChangeListener;
@@ -10,8 +10,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -22,6 +22,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
@@ -32,7 +34,6 @@ import org.controlsfx.control.PopOver;
 import resources.Resources;
 import settings.SearchEngine;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -56,10 +57,12 @@ public class TabController implements Initializable{
     public static String searchEngine = SearchEngine.BING_ENGINE;
     private static URL Home = null;
 
-    private String folderName = null;
+    private ObservableList<String> options = null;
+    private String folder;
     private String title = null;
     private String link = null;
-    private Tab tab = null;;
+    private Tab tab = null;
+    private PopOver popOver = new PopOver(new JFXButton("Yes"));
     private static Hub hub = new Hub();
 
     static {
@@ -109,11 +112,103 @@ public class TabController implements Initializable{
         }
     }
 
-    @FXML void addBookmark(MouseEvent event) {
-        if(bookmark.getStyleClass().contains("bookmark"))
+    public void isBookmark(){
+        boolean isBookmarked = BookMarksDataBase.isBookmarked(link,title,folder);
+        if(isBookmarked)
             bookmark.getStyleClass().add("bookmarked");
         else
             bookmark.getStyleClass().remove("bookmarked");
+    }
+
+    @FXML void addBookmark(MouseEvent event) {
+        isBookmark();
+        VBox popUpContent = new VBox();
+
+        popUpContent.setMinSize(300, 200);
+        popUpContent.setSpacing(5);
+        popUpContent.setPadding(new Insets(5, 5, 5, 5));
+        Label nameLabel = new Label("Name");
+        JFXTextField markNameText = new JFXTextField();
+
+        markNameText.setText(title);
+        Label folderLabel = new Label("Folder");
+
+        options =  BookMarksDataBase.folders(1);
+
+        JFXComboBox<String> markFolderList = new JFXComboBox<>(options);
+        markFolderList.setMinWidth(300);
+        markFolderList.getSelectionModel().select(0);
+
+        JFXButton cancelPopup = new JFXButton("Cancel");
+        cancelPopup.setMinSize(100, 30);
+
+        JFXButton newFolderMarkFolder = new JFXButton("New Folder");
+        newFolderMarkFolder.setMinSize(100, 30);
+
+        JFXButton saveMark = new JFXButton("Save");
+        saveMark.setMinSize(100, 30);
+
+        HBox hbox = new HBox();
+        hbox.setSpacing(5);
+        hbox.getChildren().addAll(cancelPopup, newFolderMarkFolder, saveMark);
+        // markFolderList.setVisibleRowCount(0);
+
+
+        VBox.setMargin(nameLabel, new Insets(5, 5, 5, 5));
+        VBox.setMargin(markNameText, new Insets(5, 5, 5, 5));
+        VBox.setMargin(folderLabel, new Insets(5, 5, 5, 5));
+        VBox.setMargin(markFolderList, new Insets(5, 5, 5, 5));
+
+        popUpContent.getChildren().addAll( nameLabel, markNameText, folderLabel, markFolderList, hbox);
+
+        popOver.setCornerRadius(4);
+        popOver.setContentNode(popUpContent);
+        popOver.setDetachable(false);
+        // popOver.setMinSize(400, 400);
+        popOver.setArrowLocation(PopOver.ArrowLocation.TOP_RIGHT);
+        popOver.show(bookmark);
+
+        cancelPopup.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler -> {
+            popOver.hide();
+        });
+
+        saveMark.addEventHandler(MouseEvent.MOUSE_CLICKED, (s)->{
+            if(folder==null){
+                folder=markFolderList.getItems().get(0);
+            }
+            title = markNameText.getText();
+            if (title == null) {
+                title = webEngine.getTitle();
+            }
+            BookMarksDataBase.insertBookmarks(searchField.getText(), folder,title,1);
+            popOver.hide();
+        });
+        newFolderMarkFolder.addEventHandler(MouseEvent.MOUSE_CLICKED, event2 -> {
+            TextInputDialog dialog = new TextInputDialog("All Bookmarks");
+            dialog.setTitle("Create New Folder");
+            dialog.setHeaderText("Create New Folder");
+            dialog.setContentText("Please enter folder name:");
+            Optional<String> result = dialog.showAndWait();
+
+            result.ifPresent(name ->{
+                title = markNameText.getText();
+                if (title == null) {
+                    title = webEngine.getTitle();
+                }
+                if(name!=null && !name.isEmpty()){
+                    folder = name;
+                    options.add(folder);
+                    BookMarksDataBase.insertBookmarks(searchField.getText(), folder,title,1);
+                }else{
+                    Notifications notify = Notifications.create().title("BookMark Folder")
+                            .text("No Folder specified.")
+                            .hideAfter(Duration.seconds(1))
+                            .position(Pos.BOTTOM_RIGHT);
+                    notify.darkStyle();
+                    notify.showInformation();
+                }
+            });
+        });
     }
 
     @FXML void openHub(MouseEvent event){
@@ -149,6 +244,7 @@ public class TabController implements Initializable{
 
                     //add successful search in storage
                     HistoryManagement.insert(link, title);
+                    isBookmark();
 
                 } else if(newState == Worker.State.CANCELLED){
                     refreshOrCancel(false);
