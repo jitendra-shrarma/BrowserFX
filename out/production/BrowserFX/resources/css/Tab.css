@@ -97,6 +97,12 @@
     -fx-background-color: #404040;
 }
 
+.bookmark{
+    -fx-background-image:url("/resources/images/bookmark.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+}
+
 .bookmarked{
     -fx-background-image:url("/resources/images/bookmarked.png");
     -fx-background-repeat:no-repeat;

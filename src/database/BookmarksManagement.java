@@ -1,22 +1,31 @@
 package database;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class BookmarksManagement {
-	private static Connection connection = null;
+
 	private static PreparedStatement preparedStatement = null;
 	private static ResultSet resultSet = null;
+	private static Date dateTime;
+	private static SimpleDateFormat timeFormat;
+	private static SimpleDateFormat dateFormat;
+
+	static {
+		timeFormat = new SimpleDateFormat("HH:mm:ss");
+		dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+	}
 	
-	public static void createDataBase() {
+	public static void create() {
 		try {
-			connection = SqliteConnection.Connector();
-			preparedStatement = connection.prepareStatement("CREATE TABLE if not exists bookmark(url text, title varchar(30) ,folderName varchar(40), PRIMARY KEY(url));");
+			preparedStatement = SqliteConnection.Connector().prepareStatement("create table if not exists bookmark(url text,"
+					+" name varchar(30) ,time varchar(30) ,date varchar(30) ,folderName varchar(40) , PRIMARY KEY(url));");
 			preparedStatement.executeUpdate();
 			System.out.println("Bookmark database created");
 		} catch (SQLException e) {
@@ -24,13 +33,13 @@ public class BookmarksManagement {
 		}
 	}
 
-	public static boolean isBookmarked(String url, String title, String folder){
+	public static boolean isBookmarked(String url, String name, String folder){
 		try {
-			preparedStatement = connection.prepareStatement("select title,folderName from bookmark where url = ?;");
+			preparedStatement = SqliteConnection.Connector().prepareStatement("select title,folderName from bookmark where url = ?;");
 			preparedStatement.setString(1, url);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()){
-				title = resultSet.getString(1);
+				name = resultSet.getString(1);
 				folder = resultSet.getString(2);
 				return true;
 			}
@@ -40,13 +49,19 @@ public class BookmarksManagement {
 		return false;
 	}
 
-	public static void insert(String url, String folder, String title) {
+	public static void insert(String url, String folder, String name) {
 		try {
-			String insert = "insert or replace into bookmark(url,title,folderName)" + "values(?,?,?)";
-			preparedStatement = connection.prepareStatement(insert);
+			dateTime = new Date();
+			String time = timeFormat.format(dateTime);
+			String date = dateFormat.format(dateTime);
+
+			String insert = "insert or replace into bookmark(url,title,time,date,folderName)" + "values(?,?,?)";
+			preparedStatement = SqliteConnection.Connector().prepareStatement(insert);
 			preparedStatement.setString(1, url);
-			preparedStatement.setString(2, title);
-			preparedStatement.setString(3, folder);
+			preparedStatement.setString(2, name);
+			preparedStatement.setString(3, time);
+			preparedStatement.setString(4, date);
+			preparedStatement.setString(5, folder);
 			preparedStatement.executeUpdate();
 			System.out.println("Bookmark Entry added.");
 		} catch (Exception e) {
@@ -56,22 +71,23 @@ public class BookmarksManagement {
 
 	public static ResultSet showBookmarks(String folder) {
 		try {
-			String query = "select url from bookmark where folderName = ?;";
-			preparedStatement = connection.prepareStatement(query);
+			String query = "select url,name,time,date from bookmark where folderName = ?;";
+			preparedStatement = SqliteConnection.Connector().prepareStatement(query);
 			preparedStatement.setString(1, folder);
 			resultSet = preparedStatement.executeQuery();
 		} catch (Exception e) {
 			System.out.println("Exception showing bookmarks:");
 			e.printStackTrace();
+		} finally {
+			return resultSet;
 		}
-		return resultSet;
 	}
 
 	public static ObservableList<String> folders() {
 		String query = query = "select distinct folderName from bookmark;";
 		ObservableList<String> list = FXCollections.observableArrayList();
 		try {
-			preparedStatement = connection.prepareStatement(query);
+			preparedStatement = SqliteConnection.Connector().prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				String folder = resultSet.getString(1);

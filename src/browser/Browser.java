@@ -2,6 +2,7 @@ package browser;
 
 import BrowserStage.Stage.SceneFX;
 import database.BookmarksManagement;
+import database.HistoryManagement;
 import javafx.application.Application;
 import javafx.collections.ListChangeListener;
 import javafx.event.EventHandler;
@@ -103,7 +104,8 @@ public class Browser extends Application {
     }
 
     public static void main(String[] args) {
-        BookmarksManagement.createDataBase();
+        HistoryManagement.create();
+        BookmarksManagement.create();
         launch(args);
     }
 }

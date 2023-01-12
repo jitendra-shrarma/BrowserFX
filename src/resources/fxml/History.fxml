@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1010.0" styleClass="borderroot" stylesheets="@../css/Hub.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HistroyController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1010.0" styleClass="borderroot" stylesheets="@../css/Hub.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HistoryController">
    <left>
       <VBox opacity="0.84" prefWidth="250.0" BorderPane.alignment="CENTER">
          <children>
@@ -39,7 +39,7 @@
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <JFXTextField fx:id="search" focusColor="WHITE" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" unFocusColor="#404040" GridPane.columnIndex="1">
+            <JFXTextField fx:id="search" focusColor="WHITE" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#SearchDataInTable" prefHeight="30.0" prefWidth="400.0" promptText="Search URL" unFocusColor="#404040" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font></JFXTextField>

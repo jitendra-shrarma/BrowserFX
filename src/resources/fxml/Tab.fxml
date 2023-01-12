@@ -53,7 +53,7 @@
                                  </font>
                               </JFXTextField>
                               <Label fx:id="information" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="36.0" styleClass="information" />
-                              <Label fx:id="bookmark" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addBookmark" prefHeight="32.0" prefWidth="36.0" GridPane.columnIndex="2" />
+                              <Label fx:id="bookmark" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addBookmark" prefHeight="32.0" prefWidth="36.0" styleClass="bookmark" GridPane.columnIndex="2" />
                            </children>
                         </GridPane>
                         <Label fx:id="backword" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goBack" prefHeight="48.0" prefWidth="48.0" styleClass="backward-button" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
