@@ -1,0 +1,104 @@
+.navigation-pane{
+	-fx-background-color:#404040;
+}
+
+.backward-button{
+    -fx-background-image:url("/resources/images/back.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+	-fx-background-color:#404040;
+}
+
+.backward-button:hover{
+    -fx-background-image:url("/resources/images/back-hover.png");
+	-fx-background-color:#606060;
+}
+
+.forward-button{
+    -fx-background-image:url("/resources/images/next.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+	-fx-background-color:#404040;
+}
+
+.forward-button:hover{
+    -fx-background-image:url("/resources/images/next-hover.png");
+	-fx-background-color:#606060;
+}
+
+.refresh-button{
+    -fx-background-image:url("/resources/images/refresh.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+	-fx-background-color:#404040;
+}
+
+.refresh-button:hover{
+    -fx-background-image:url("/resources/images/refresh-hover.png");
+	-fx-background-color:#606060;
+}
+
+.cancel-button{
+    -fx-background-image:url("/resources/images/cancel.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+    -fx-background-color:#404040;
+}
+
+.cancel-button:hover{
+    -fx-background-image:url("/resources/images/cancel-hover.png");
+    -fx-background-color:#606060;
+}
+
+.home-button{
+    -fx-background-image:url("/resources/images/home.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+	-fx-background-color:#404040;
+}
+
+.home-button:hover{
+    -fx-background-image:url("/resources/images/home-hover.png");
+	-fx-background-color:#606060;
+}
+
+.search-bar{
+	-fx-border-width: 0 1 0 1;
+	-fx-border-color:#808080;
+    -fx-fill:#404040;
+	-fx-background-color:#FFFFFF;
+}
+
+.pdf-button{
+    -fx-background-image:url("/resources/images/pdf.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+	-fx-background-color:#404040;
+}
+
+.pdf-button:hover{
+    -fx-background-image:url("/resources/images/pdf-hover.png");
+	-fx-background-color:#606060;
+}
+
+.hub-button{
+    -fx-background-image:url("/resources/images/hub.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+	-fx-background-color:#404040;
+}
+
+.hub-button:hover{
+    -fx-background-image:url("/resources/images/hub-hover.png");
+	-fx-background-color:#606060;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: #404040;
+}
+
+.bookmarked{
+    -fx-background-image:url("/resources/images/bookmarked.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-position: center;
+}
